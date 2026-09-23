@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+:root {
+  /* Light theme — warm off-white / beige rhythm */
+  --background: #fcfaf5;
+  --surface: #fcfaf5;
+  --surface-2: #f7f1e2;
+  --border: #efe7d6;
+  --border-strong: #e7e0d0;
+  --foreground: #151210;
+  --muted: #6b6558;
+  --muted-2: #9a9384;
+
+  /* primary accent: orange (icons, highlights, dividers) — kept on the historical
+     `accent-blue` token name so every existing usage repaints without a rename sweep */
+  --accent-blue: #f97316;
+  --accent-teal: #22d3a5;
+
+  /* dark studio stage (hero visual zone, core/CTA zones) */
+  --studio-1: #000000;
+  --studio-2: #000000;
+  --studio-3: #000000;
+
+  /* marketing accent: purple → magenta → orange */
+  --brand-purple: #7c3aed;
+  --brand-magenta: #d6409f;
+  --brand-orange: #f97316;
+
+  /* Tracker orange — sampled directly from the product photography, used for
+     headings/accent text and icon badges so they match the device color exactly */
+  --tracker-orange-1: #ff7d27;
+  --tracker-orange-2: #f26305;
+  --tracker-orange-3: #b03603;
+  --tracker-orange-gradient: linear-gradient(135deg, var(--tracker-orange-1) 0%, var(--tracker-orange-2) 55%, var(--tracker-orange-3) 100%);
+
+  --status-green: #16a34a;
+  --status-amber: #d97706;
+  --status-red: #dc2626;
+  --status-blue: #2563eb;
+
+  --footer-bg: var(--surface-2);
+  --footer-surface: #fcfaf5;
+  --footer-fg: var(--foreground);
+  --footer-muted: var(--muted);
+  --footer-muted-2: var(--muted-2);
+  --footer-border: var(--border-strong);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
+
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-teal: var(--accent-teal);
+
+  --color-studio-1: var(--studio-1);
+  --color-studio-2: var(--studio-2);
+  --color-studio-3: var(--studio-3);
+
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-magenta: var(--brand-magenta);
+  --color-brand-orange: var(--brand-orange);
+
+  --color-status-green: var(--status-green);
+  --color-status-amber: var(--status-amber);
+  --color-status-red: var(--status-red);
+  --color-status-blue: var(--status-blue);
+
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-surface: var(--footer-surface);
+  --color-footer-fg: var(--footer-fg);
+  --color-footer-muted: var(--footer-muted);
+  --color-footer-muted-2: var(--footer-muted-2);
+  --color-footer-border: var(--footer-border);
+
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+  --font-script: var(--font-caveat);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-data {
+  font-family: var(--font-mono), monospace;
+}
+
+.font-script {
+  font-family: var(--font-script), cursive;
+}
+
+.label-mono {
+  font-family: var(--font-mono), monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+::selection {
+  background: var(--brand-magenta);
+  color: #ffffff;
+}
+
+.gradient-text {
+  background-image: linear-gradient(92deg, var(--tracker-orange-1) 0%, var(--tracker-orange-2) 55%, var(--tracker-orange-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* The iNOVAA logo/wordmark keeps its original brand gradient — never repainted
+   by the photo-matched Tracker orange used elsewhere */
+.gradient-text-logo {
+  background-image: linear-gradient(92deg, var(--brand-purple) 0%, var(--brand-magenta) 55%, var(--brand-orange) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Shared icon-badge fill — matches the Tracker's own photographed color */
+.icon-badge-orange {
+  background-image: var(--tracker-orange-gradient);
+  color: #ffffff;
+  box-shadow: 0 10px 24px -10px rgba(242, 99, 5, 0.5);
+}
+
+/* Same fill, applied only on hover of an ancestor .group (Tailwind's arbitrary
+   background-image utility doesn't reliably compile with a var()-wrapped gradient) */
+.icon-badge-orange-hover {
+  transition: background-image 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.group:hover .icon-badge-orange-hover {
+  background-image: var(--tracker-orange-gradient);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.gradient-text-product {
+  background-image: linear-gradient(100deg, var(--accent-blue), var(--accent-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(26, 26, 31, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 31, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Soft white card, warm shadow, accent top border — iNOVAA's light-theme card primitive */
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px -2px rgba(26, 26, 31, 0.06), 0 12px 28px -12px rgba(26, 26, 31, 0.08);
+}
+
+.surface-card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.surface-card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px -4px rgba(26, 26, 31, 0.08), 0 28px 48px -16px rgba(147, 51, 234, 0.18);
+}
+
+/* Legacy alias kept for any stray references */
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-blue);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px -2px rgba(26, 26, 31, 0.06), 0 12px 28px -12px rgba(26, 26, 31, 0.08);
+}
+
+.glow-border {
+  box-shadow: 0 2px 8px -2px rgba(26, 26, 31, 0.06), 0 12px 28px -12px rgba(26, 26, 31, 0.08);
+}
+
+.corner-tag {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.1em;
+}
+
+/* Primary / secondary button primitives — brand gradient everywhere */
+.btn-primary,
+.btn-primary-dark {
+  background-image: linear-gradient(92deg, var(--brand-purple), var(--brand-magenta), var(--brand-orange));
+  color: #ffffff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, filter 0.25s ease;
+  box-shadow: 0 8px 20px -8px rgba(214, 64, 159, 0.45);
+}
+.btn-primary:hover,
+.btn-primary-dark:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px -8px rgba(214, 64, 159, 0.55);
+  filter: brightness(1.04);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--brand-orange);
+  border: 1.5px solid var(--brand-orange);
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.btn-secondary:hover {
+  background: rgba(249, 115, 22, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(249, 115, 22, 0.35);
+}
+
+/* Dark studio stage — hero visual zones, core/CTA zones */
+.bg-studio {
+  background: radial-gradient(ellipse 90% 90% at 50% 45%, var(--studio-1) 0%, var(--studio-2) 55%, var(--studio-3) 100%);
+}
+
+/* Signature motion: a horizontal scan line draws in on reveal */
+@keyframes scan-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.scan-line {
+  transform-origin: left;
+  animation: scan-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-x 38s linear infinite;
+}
+.marquee-track-reverse {
+  animation: marquee-x 44s linear infinite reverse;
+}
+
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(4%, 6%) scale(1.08);
+  }
+  66% {
+    transform: translate(-3%, -4%) scale(0.96);
+  }
+}
+.blob-float {
+  animation: blob-float 16s ease-in-out infinite;
+}
+.blob-float-slow {
+  animation: blob-float 22s ease-in-out infinite reverse;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+  border: 2px solid var(--background);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
