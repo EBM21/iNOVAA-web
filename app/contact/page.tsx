@@ -60,7 +60,7 @@ export default function ContactPage() {
               <Building2 className="h-5 w-5 text-accent-blue" />
               <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-muted-2">Company</p>
               <p className="mt-1 font-semibold text-foreground">{site.legalName}</p>
-              <p className="text-sm text-muted">Formerly NOVAA</p>
+              
             </div>
             <div className="surface-card rounded-2xl p-5">
               <Mail className="h-5 w-5 text-accent-blue" />
