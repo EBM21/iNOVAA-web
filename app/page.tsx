@@ -26,6 +26,7 @@ import {
   Tag,
   Wrench,
 } from "lucide-react";
+import { div } from "framer-motion/client";
 
 const fields = [
   { icon: <Sun className="h-6 w-6" strokeWidth={1.75} />, label: "Solar Maintenance", href: "/industries/solar" },
@@ -46,38 +47,9 @@ export const metadata = pageMetadata("/");
 
 function BrandIntro() {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="brand-intro-heading">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
-        <h2 id="brand-intro-heading" className="text-3xl font-bold tracking-tight sm:text-4xl">
-          iNOVAA — formerly NOVAA — is the field workforce tracker that proves the work
-        </h2>
-        <div className="mt-6 space-y-4 text-base leading-relaxed text-muted">
-          <p>
-            Field teams do their best work where nobody can see it. iNOVAA pairs an IoT wearable tracker with field
-            service management software so managers, dispatchers, and customers see verified progress instead of
-            chasing updates. The{" "}
-            <Link href="/platform/inovaa-tracker" className="font-medium text-foreground underline underline-offset-4">
-              iNOVAA Tracker
-            </Link>{" "}
-            is a wrist-worn activity tracker for technicians: it recognizes work from hand motion, logs it offline, and
-            turns every shift into automatic proof of work.
-          </p>
-          <p>
-            That record flows into the{" "}
-            <Link href="/platform" className="font-medium text-foreground underline underline-offset-4">
-              iNOVAA Portal
-            </Link>
-            , where a live dashboard doubles as a worker efficiency tracker and a customer portal shows clients exactly
-            what happened on site. Crews in{" "}
-            <Link href="/industries" className="font-medium text-foreground underline underline-offset-4">
-              solar, HVAC, logistics, hospitality, and landscaping
-            </Link>{" "}
-            already run on it. If you knew us as NOVAA, you&apos;re in the right place — same team, same product,
-            new name.
-          </p>
-        </div>
-      </div>
-    </section>
+<div>
+  
+</div>
   );
 }
 
