@@ -4,6 +4,11 @@ import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import CapabilityList from "@/components/CapabilityList";
 import RoleViews from "@/components/RoleViews";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 import { Eye, ImageIcon, FileSignature, Clock } from "lucide-react";
 
 const items = [
@@ -19,12 +24,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/platform/customer-portal");
+
 export default function CustomerPortalPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/platform/customer-portal")} />
       <SplitHero
         eyebrow="Platform · Customer Portal"
-        title="Clients see their jobs, in real time"
+        title="Customer portal: clients see their jobs in real time"
         subhead="No more calling to ask what happened on site."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -40,6 +48,7 @@ export default function CustomerPortalPage() {
       />
       <CapabilityList items={items} />
       <RoleViews />
+      <RelatedLinks title="Related to the customer portal" links={[links.tracker, links.dashboard, links.multiTenant]} />
       <CTASection />
     </>
   );

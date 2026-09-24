@@ -3,6 +3,11 @@ import TrackerHeroVideo from "@/components/TrackerHeroVideo";
 import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import Reveal from "@/components/ui/Reveal";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 import IndustriesCarousel from "@/components/IndustriesCarousel";
 import IndustryPortalDashboard from "@/components/IndustryPortalDashboard";
 import IconChipRow from "@/components/ui/IconChipRow";
@@ -22,12 +27,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/industries");
+
 export default function IndustriesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/industries")} />
       <SplitHero
         eyebrow="Industries"
-        title="Built for crews that work on-site"
+        title="A field workforce tracker for crews that work on-site"
         subhead="One live record, five different playbooks."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -50,6 +58,7 @@ export default function IndustriesPage() {
           </Reveal>
         </div>
       </section>
+      <RelatedLinks title="Explore iNOVAA by industry" links={[links.solar, links.hvac, links.logistics, links.hospitality, links.landscaping, links.tracker]} />
       <CTASection />
     </>
   );

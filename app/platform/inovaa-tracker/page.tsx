@@ -6,6 +6,12 @@ import CTASection from "@/components/CTASection";
 import Reveal from "@/components/ui/Reveal";
 import TrustBadgeRow from "@/components/ui/TrustBadgeRow";
 import IconChipRow from "@/components/ui/IconChipRow";
+import FaqSection from "@/components/FaqSection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, trackerProductSchema } from "@/lib/schema";
+import { links, trackerFaqs } from "@/lib/content";
 import { Cpu, BatteryFull, ShieldCheck, Feather, Droplet, WifiOff, Sun, Thermometer, Truck, Sparkles, Trees } from "lucide-react";
 
 const trustBadges = [
@@ -16,11 +22,11 @@ const trustBadges = [
 ];
 
 const fields = [
-  { icon: <Sun className="h-7 w-7" strokeWidth={1.75} />, label: "Solar Maintenance" },
-  { icon: <Thermometer className="h-7 w-7" strokeWidth={1.75} />, label: "HVAC" },
-  { icon: <Truck className="h-7 w-7" strokeWidth={1.75} />, label: "Delivery & Logistics" },
-  { icon: <Sparkles className="h-7 w-7" strokeWidth={1.75} />, label: "Hospitality Cleaning" },
-  { icon: <Trees className="h-7 w-7" strokeWidth={1.75} />, label: "Landscaping" },
+  { icon: <Sun className="h-7 w-7" strokeWidth={1.75} />, label: "Solar Maintenance", href: "/industries/solar" },
+  { icon: <Thermometer className="h-7 w-7" strokeWidth={1.75} />, label: "HVAC", href: "/industries/hvac" },
+  { icon: <Truck className="h-7 w-7" strokeWidth={1.75} />, label: "Delivery & Logistics", href: "/industries/logistics" },
+  { icon: <Sparkles className="h-7 w-7" strokeWidth={1.75} />, label: "Hospitality Cleaning", href: "/industries/hospitality" },
+  { icon: <Trees className="h-7 w-7" strokeWidth={1.75} />, label: "Landscaping", href: "/industries/landscaping" },
 ];
 
 const specs = [
@@ -30,9 +36,12 @@ const specs = [
   { label: "Model", value: "Hybrid TFLite + Random Forest" },
 ];
 
+export const metadata = pageMetadata("/platform/inovaa-tracker");
+
 export default function InovaaTrackerPage() {
   return (
     <>
+      <JsonLd data={[trackerProductSchema, breadcrumbSchema("/platform/inovaa-tracker")]} />
       <TrackerPageHero />
 
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
@@ -75,6 +84,11 @@ export default function InovaaTrackerPage() {
           </Reveal>
         </div>
       </section>
+      <FaqSection title="iNOVAA Tracker questions, answered" faqs={trackerFaqs} />
+      <RelatedLinks
+        title="See the iNOVAA Tracker at work"
+        links={[links.hvac, links.solar, links.logistics, links.hospitality, links.landscaping, links.platform]}
+      />
       <CTASection />
     </>
   );

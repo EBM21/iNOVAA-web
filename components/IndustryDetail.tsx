@@ -5,6 +5,10 @@ import IndustryPortalDashboard from "./IndustryPortalDashboard";
 import Reveal from "./ui/Reveal";
 import TrustBadgeRow from "./ui/TrustBadgeRow";
 import CTASection from "./CTASection";
+import FaqSection from "./FaqSection";
+import RelatedLinks from "./RelatedLinks";
+import SectionHeading from "./ui/SectionHeading";
+import { industryContent, links } from "@/lib/content";
 import { Building2, RefreshCw, WifiOff } from "lucide-react";
 
 const trustBadges = [
@@ -30,11 +34,17 @@ export default function IndustryDetail({
   blurb: string;
   sub: readonly string[];
 }) {
+  const content = industryContent[slug];
+  // Link to the other industries too, so every industry page is reachable from its siblings.
+  const siblings = (["solar", "hvac", "logistics", "hospitality", "landscaping"] as const)
+    .filter((s) => s !== slug)
+    .map((s) => links[s]);
+
   return (
     <>
       <SplitHero
-        eyebrow="Industries"
-        title={name}
+        eyebrow={`Industries · ${name}`}
+        title={content.h1}
         subhead={blurb}
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -67,7 +77,30 @@ export default function IndustryDetail({
         </div>
       </section>
 
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          <SectionHeading eyebrow={name} title={content.sectionTitle} />
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted">
+            {content.intro.map((p) => (
+              <p key={p.slice(0, 32)}>{p}</p>
+            ))}
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {content.useCases.map((u) => (
+              <article key={u.title} className="surface-card rounded-2xl p-6">
+                <h3 className="font-semibold text-foreground">{u.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{u.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <IndustryPortalDashboard slug={slug} />
+
+      <FaqSection title={`${name} questions, answered`} faqs={content.faqs} />
+      <RelatedLinks title={`Recommended for ${name} teams`} links={content.related} />
+      <RelatedLinks title="Other industries on iNOVAA" links={siblings} />
 
       <CTASection />
     </>

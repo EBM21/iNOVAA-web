@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function FadeImage({
@@ -26,11 +27,12 @@ export default function FadeImage({
       className={`relative ${className}`}
     >
       <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[3rem] bg-gradient-to-br from-accent-blue/15 via-brand-magenta/10 to-brand-orange/15 blur-3xl" />
-      <img
+      <Image
         src={src}
         alt={alt}
-        loading="lazy"
-        className="h-full w-full object-cover"
+        fill
+        sizes="(min-width: 1024px) 640px, 100vw"
+        className="object-cover"
         style={{ maskImage: mask, WebkitMaskImage: mask }}
       />
     </motion.div>

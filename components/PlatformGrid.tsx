@@ -23,7 +23,7 @@ const icons = { LayoutDashboard, Radio, Users, Building2 };
 
 const diagrams = [
   (
-    <FadeImage key="d1" src="/tracker-rock-hero.png" alt="iNOVAA Tracker band" className="h-full w-full" maskSize="92% 88%" />
+    <FadeImage key="d1" src="/tracker-rock-hero.png" alt="iNOVAA Tracker wearable band that feeds proof-of-work data into the iNOVAA Portal" className="h-full w-full" maskSize="92% 88%" />
   ),
   (
     <div key="d2" className="flex h-full w-full items-center justify-center">

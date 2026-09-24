@@ -13,10 +13,10 @@ const stats = [
 export default function Hero() {
   return (
     <SplitHero
-      eyebrow="IoT Wearable — The First Tracker Built To Work With Zero Signal On Site."
+      eyebrow="iNOVAA Tracker — The IoT Wearable Built To Work With Zero Signal On Site."
       title={
         <>
-          AI-Powered Workforce <span className="gradient-text">Wearables.</span>
+          AI-Powered Field Workforce <span className="gradient-text">Wearables.</span>
         </>
       }
       subhead="Automatic proof of work for every employee - Convert hand-motions into visibility"

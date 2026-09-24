@@ -4,6 +4,11 @@ import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import CapabilityList from "@/components/CapabilityList";
 import ProductDemo from "@/components/ProductDemo";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 import { MapPin, Radar, ClipboardCheck, Bell } from "lucide-react";
 
 const items = [
@@ -19,12 +24,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/platform/field-ops-dashboard");
+
 export default function FieldOpsDashboardPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/platform/field-ops-dashboard")} />
       <SplitHero
         eyebrow="Platform · Field Ops Dashboard"
-        title="Every job, every crew, one live map"
+        title="Field ops dashboard: every job and crew, one live map"
         subhead="Staged progress and GPS-tagged status events, in one view."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -40,6 +48,7 @@ export default function FieldOpsDashboardPage() {
       />
       <CapabilityList items={items} />
       <ProductDemo />
+      <RelatedLinks title="Related to the field ops dashboard" links={[links.tracker, links.customerPortal, links.hvac]} />
       <CTASection />
     </>
   );

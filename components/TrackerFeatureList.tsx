@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   BatteryFull,
@@ -32,9 +33,12 @@ export default function TrackerFeatureList() {
           {/* Photo side */}
           <Reveal className="relative">
             <div className="relative overflow-hidden rounded-[2rem] shadow-[0_40px_80px_-30px_rgba(26,26,31,0.35)]">
-              <img
+              <Image
                 src="/tracker-rock-hero.png"
-                alt="iNOVAA Tracker"
+                width={921}
+                height={1152}
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                alt="Orange iNOVAA Tracker wearable resting on a rock at an outdoor job site"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -49,14 +53,21 @@ export default function TrackerFeatureList() {
               whileHover={{ y: -4 }}
               className="absolute -bottom-8 -right-4 w-44 overflow-hidden rounded-xl border-4 border-background shadow-[0_20px_40px_-14px_rgba(26,26,31,0.4)] sm:-right-8 sm:w-56"
             >
-              <img src="/tracker-gps-inset.png" alt="Real-time GPS tracking" className="h-full w-full object-cover" />
+              <Image
+                src="/tracker-gps-inset.png"
+                width={658}
+                height={288}
+                sizes="224px"
+                alt="iNOVAA Tracker next to a tablet showing a technician's real-time GPS route"
+                className="h-full w-full object-cover"
+              />
             </motion.div>
           </Reveal>
 
           {/* Feature list */}
           <div className="mt-10 lg:mt-0">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">Smart features</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Built for field professionals</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">A wrist-worn activity tracker built for technicians</h2>
 
             <div className="mt-9 divide-y divide-border">
               {features.map((f, i) => (

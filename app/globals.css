@@ -286,6 +286,41 @@ h1, h2, h3, h4, h5, h6 {
   animation: blob-float 22s ease-in-out infinite reverse;
 }
 
+/* Hero entrance runs in CSS (not framer-motion) so the h1 and hero video paint before hydration —
+   JS-driven opacity:0 would hold back Largest Contentful Paint until the bundle loads. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes hero-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-rise {
+  animation: hero-rise 0.5s ease-out 0.06s both;
+}
+.hero-zoom {
+  animation: hero-zoom 0.6s ease-out 0.1s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-zoom {
+    animation: none;
+  }
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 10px;

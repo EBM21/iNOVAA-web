@@ -5,6 +5,11 @@ import HowItWorks from "@/components/HowItWorks";
 import WalkthroughSection from "@/components/WalkthroughSection";
 import ProductDemo from "@/components/ProductDemo";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 
 const heroStats = [
   { label: "Battery Life", value: "7 Days" },
@@ -12,12 +17,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/how-it-works");
+
 export default function HowItWorksPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/how-it-works")} />
       <SplitHero
         eyebrow="How it works"
-        title="Scheduled to signed off, with a trail behind it"
+        title="How automatic proof of work runs, scheduled to signed off"
         subhead="Every suggestion traceable back to what it read."
         stats={heroStats}
         dark
@@ -32,6 +40,7 @@ export default function HowItWorksPage() {
       <HowItWorks />
       <ProductDemo />
       <WalkthroughSection />
+      <RelatedLinks title="Go deeper" links={[links.tracker, links.dashboard, links.customerPortal]} />
       <CTASection />
     </>
   );

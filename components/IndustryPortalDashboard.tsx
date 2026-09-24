@@ -160,7 +160,7 @@ function RosterRow({
     >
       <div className="flex min-w-0 items-center gap-3">
         {avatar ? (
-          <img src={`https://i.pravatar.cc/72?img=${avatar}`} alt={member.name} className="h-9 w-9 shrink-0 rounded-full object-cover" />
+          <img src={`https://i.pravatar.cc/72?img=${avatar}`} alt="" width={36} height={36} loading="lazy" decoding="async" className="h-9 w-9 shrink-0 rounded-full object-cover" />
         ) : (
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface-2 text-xs font-semibold text-muted-2">
             {member.name.charAt(0)}
@@ -435,7 +435,7 @@ export default function IndustryPortalDashboard({ slug }: { slug: string }) {
                             <div className="flex min-w-0 items-center gap-3">
                               <img
                                 src={`https://i.pravatar.cc/72?img=${m.avatar}`}
-                                alt={m.name}
+                                alt="" width={40} height={40} loading="lazy" decoding="async"
                                 className="h-10 w-10 shrink-0 rounded-full object-cover"
                               />
                               <div className="min-w-0">
@@ -519,7 +519,7 @@ export default function IndustryPortalDashboard({ slug }: { slug: string }) {
                                     <div className="flex items-center gap-3">
                                       <img
                                         src={`https://i.pravatar.cc/64?img=${a.avatar}`}
-                                        alt={a.name}
+                                        alt="" width={32} height={32} loading="lazy" decoding="async"
                                         className="h-8 w-8 shrink-0 rounded-full object-cover"
                                       />
                                       <span className="font-medium text-foreground">{a.name}</span>
@@ -573,7 +573,7 @@ export default function IndustryPortalDashboard({ slug }: { slug: string }) {
                                 <div className="flex min-w-0 items-center gap-2.5">
                                   <img
                                     src={`https://i.pravatar.cc/56?img=${p.avatar}`}
-                                    alt={p.name}
+                                    alt="" width={32} height={32} loading="lazy" decoding="async"
                                     className="h-8 w-8 shrink-0 rounded-full object-cover"
                                   />
                                   <span className="truncate text-sm font-medium text-foreground">{p.name}</span>

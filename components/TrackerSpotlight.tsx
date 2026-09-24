@@ -1,15 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BatteryFull, MapPin, ScanEye, ShieldCheck, WifiOff } from "lucide-react";
 import SectionHeading from "./ui/SectionHeading";
 
 const tiles = [
-  { src: "/tracker-rock-hero.png", caption: "Full Assembly", dark: true, large: true },
-  { src: "/tracker-detail-sensors.png", caption: "Precision Sensors", dark: true },
-  { src: "/tracker-detail-led.png", caption: "Activity LED", dark: false },
-  { src: "/tracker-detail-strap.png", caption: "Secure Strap", dark: true },
-  { src: "/tracker-detail-wrist.png", caption: "Worn on Wrist", dark: false },
+  { src: "/tracker-rock-hero.png", caption: "Full Assembly", dark: true, large: true, alt: "Fully assembled orange iNOVAA Tracker IoT wearable on a rock outdoors" },
+  { src: "/tracker-detail-sensors.png", caption: "Precision Sensors", dark: true, alt: "Motion and optical sensors on the underside of the iNOVAA Tracker" },
+  { src: "/tracker-detail-led.png", caption: "Activity LED", dark: false, alt: "Activity status LED window on the side of the iNOVAA Tracker band" },
+  { src: "/tracker-detail-strap.png", caption: "Secure Strap", dark: true, alt: "Secure buckle on the iNOVAA Tracker silicone strap" },
+  { src: "/tracker-detail-wrist.png", caption: "Worn on Wrist", dark: false, alt: "Technician wearing the iNOVAA wrist-worn activity tracker during field work" },
 ];
 
 const features = [
@@ -20,7 +21,7 @@ const features = [
   { icon: ShieldCheck, title: "Rugged & IP65", text: "Built for dust, rain, and job sites." },
 ];
 
-function Tile({ src, caption, dark, large, delay }: { src: string; caption: string; dark: boolean; large?: boolean; delay: number }) {
+function Tile({ src, caption, alt, dark, large, delay }: { src: string; caption: string; alt: string; dark: boolean; large?: boolean; delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -30,10 +31,12 @@ function Tile({ src, caption, dark, large, delay }: { src: string; caption: stri
       whileHover={{ y: -4 }}
       className={`group relative overflow-hidden rounded-[1.75rem] ${large ? "aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-full" : "aspect-square"} ${dark ? "bg-studio" : "bg-surface-2"}`}
     >
-      <img
+      <Image
         src={src}
-        alt={caption}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+        alt={alt}
+        fill
+        sizes={large ? "(min-width: 1024px) 600px, 100vw" : "(min-width: 1024px) 300px, 50vw"}
+        className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
       />
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4">
         <p className="text-sm font-semibold text-white">{caption}</p>

@@ -52,6 +52,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 px-3 pt-4 sm:px-5 sm:pt-6">
       <div className="relative mx-auto max-w-[1280px]">
         <nav
+          aria-label="Primary"
           className={cn(
             "relative flex items-center justify-between gap-3 rounded-full px-3 py-1 sm:px-4 transition-all duration-300",
             isScrolled
@@ -59,7 +60,7 @@ export default function Navbar() {
               : "border-transparent bg-transparent shadow-none"
           )}
         >
-          <Link href="/" className="flex shrink-0 items-center">
+          <Link href="/" aria-label="iNOVAA home" className="flex shrink-0 items-center">
             <span className="gradient-text-logo font-heading text-2xl font-extrabold tracking-tight sm:text-[2.2rem]">
               iNOVAA
             </span>
@@ -131,6 +132,7 @@ export default function Navbar() {
             className="text-foreground lg:hidden"
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>

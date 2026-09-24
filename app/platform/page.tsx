@@ -4,6 +4,12 @@ import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import PlatformGrid from "@/components/PlatformGrid";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import FaqSection from "@/components/FaqSection";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, portalSoftwareSchema } from "@/lib/schema";
+import { links, platformFaqs } from "@/lib/content";
 import TrustBadgeRow from "@/components/ui/TrustBadgeRow";
 import IconChipRow from "@/components/ui/IconChipRow";
 import { MapPin, RefreshCw, Building2, WifiOff, Sun, Thermometer, Truck, Sparkles, Trees } from "lucide-react";
@@ -29,12 +35,15 @@ const fields = [
   { icon: <Trees className="h-7 w-7" strokeWidth={1.75} />, label: "Landscaping", href: "/industries/landscaping" },
 ];
 
+export const metadata = pageMetadata("/platform");
+
 export default function PlatformPage() {
   return (
     <>
+      <JsonLd data={[portalSoftwareSchema, breadcrumbSchema("/platform")]} />
       <SplitHero
         eyebrow="Platform"
-        title="Four systems, one job record"
+        title="Field service management software, one job record"
         subhead="Dispatch, crews, customers, and operators — all on the same live record."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -54,6 +63,8 @@ export default function PlatformPage() {
       <PlatformGrid />
       <TrustSection />
       <IconChipRow eyebrow="Works everywhere" title="One platform," accent="every field" items={fields} beige />
+      <FaqSection title="iNOVAA Portal questions, answered" faqs={platformFaqs} />
+      <RelatedLinks title="Inside the iNOVAA Portal" links={[links.tracker, links.dashboard, links.customerPortal, links.multiTenant, links.howItWorks, links.industries]} />
       <CTASection />
     </>
   );

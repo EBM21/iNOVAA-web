@@ -68,14 +68,11 @@ export default function SplitHero({
           >
             <span className="text-brand-orange">◆</span> {eyebrow}
           </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.06 }}
-            className={cn("mt-4 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl", dark ? "text-white" : "text-foreground")}
+          <h1
+            className={cn("hero-rise mt-4 text-4xl font-black leading-[1.02] tracking-tight sm:text-5xl", dark ? "text-white" : "text-foreground")}
           >
             {title}
-          </motion.h1>
+          </h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}

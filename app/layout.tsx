@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, DM_Sans, DM_Mono, Caveat } from "next/font/google";
 import "./globals.css";
+import { SITE_URL, site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -30,10 +31,31 @@ const caveat = Caveat({
   weight: ["500", "700"],
 });
 
+// Site-wide defaults. Every page overrides title/description/canonical/OG via pageMetadata() in lib/seo.ts.
 export const metadata: Metadata = {
-  title: "iNOVAA — The operating layer for field service teams",
-  description:
-    "iNOVAA is the AI-native field service platform for solar, HVAC, logistics, hospitality, and landscaping teams — a wearable Tracker for automatic proof of work, live job tracking, and a customer portal that never leaves anyone guessing.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: `${site.name} — ${site.tagline}`, template: `%s | ${site.name}` },
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.name, url: SITE_URL }],
+  creator: site.name,
+  publisher: site.legalName,
+  category: "technology",
+  formatDetection: { telephone: false, address: false, email: false },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_US",
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: `${site.name} — ${site.tagline}` }],
+  },
+  twitter: { card: "summary_large_image", images: [site.ogImage] },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f97316",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

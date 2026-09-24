@@ -4,6 +4,11 @@ import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import CapabilityList from "@/components/CapabilityList";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 import { Building2, Palette, Lock, Users2 } from "lucide-react";
 
 const items = [
@@ -19,12 +24,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/platform/multi-tenant");
+
 export default function MultiTenantPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/platform/multi-tenant")} />
       <SplitHero
         eyebrow="Platform · Multi-Tenant & Custom Branding"
-        title="Run every client company on one platform"
+        title="Multi-tenant field service platform for every client"
         subhead="Isolated, custom-branded portals for every client, on one platform."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -40,6 +48,7 @@ export default function MultiTenantPage() {
       />
       <CapabilityList items={items} />
       <TrustSection />
+      <RelatedLinks title="Related to multi-tenant branding" links={[links.customerPortal, links.landscaping, links.platform]} />
       <CTASection />
     </>
   );

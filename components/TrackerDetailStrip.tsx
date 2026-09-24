@@ -1,14 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionHeading from "./ui/SectionHeading";
 
 const details = [
-  { src: "/tracker-detail-sensors.png", title: "Precision Sensors", text: "Accurate tracking, every time." },
-  { src: "/tracker-detail-strap.png", title: "Secure Strap", text: "Stays put, no matter the job." },
-  { src: "/tracker-detail-button.png", title: "Water Resistant", text: "Rain, sweat, and dust-ready." },
-  { src: "/tracker-detail-profile.png", title: "Sleek & Modern", text: "Slim profile, built for the field." },
-  { src: "/tracker-detail-wrist.png", title: "Worn All Day", text: "Comfortable for a full shift." },
+  { src: "/tracker-detail-sensors.png", w: 1434, h: 1097, title: "Precision Sensors", text: "Accurate tracking, every time.", alt: "Sensor window and USB-C port on the underside of the orange iNOVAA Tracker" },
+  { src: "/tracker-detail-strap.png", w: 456, h: 378, title: "Secure Strap", text: "Stays put, no matter the job.", alt: "Close-up of the iNOVAA Tracker strap buckle that keeps the band secure on the job" },
+  { src: "/tracker-detail-button.png", w: 421, h: 378, title: "Water Resistant", text: "Rain, sweat, and dust-ready.", alt: "Sealed IP65 water-resistant housing and side button of the iNOVAA Tracker" },
+  { src: "/tracker-detail-profile.png", w: 456, h: 378, title: "Sleek & Modern", text: "Slim profile, built for the field.", alt: "Slim side profile of the orange iNOVAA Tracker wristband" },
+  { src: "/tracker-detail-wrist.png", w: 395, h: 596, title: "Worn All Day", text: "Comfortable for a full shift.", alt: "Field technician wearing the iNOVAA Tracker on their wrist outdoors" },
 ];
 
 export default function TrackerDetailStrip() {
@@ -29,9 +30,12 @@ export default function TrackerDetailStrip() {
               className="group"
             >
               <div className="overflow-hidden rounded-xl shadow-[0_16px_32px_-16px_rgba(26,26,31,0.3)]">
-                <img
+                <Image
                   src={d.src}
-                  alt={d.title}
+                  width={d.w}
+                  height={d.h}
+                  sizes="(min-width: 1024px) 240px, (min-width: 640px) 33vw, 50vw"
+                  alt={d.alt}
                   className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                 />
               </div>

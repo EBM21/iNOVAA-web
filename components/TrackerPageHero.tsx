@@ -13,9 +13,9 @@ const stats = [
 export default function TrackerPageHero() {
   return (
     <SplitHero
-      eyebrow="Platform — iNOVAA Tracker"
-      title="Proof of work that doesn't need a check-in"
-      subhead="A wearable that detects and classifies field activity automatically."
+      eyebrow="Platform — IoT Wearable Tracker"
+      title="iNOVAA Tracker: automatic proof of work, no check-in"
+      subhead="An IoT wearable tracker that detects and classifies field activity automatically."
       secondaryLabel="See specs"
       secondaryHref="#hardware-spec"
       stats={stats}

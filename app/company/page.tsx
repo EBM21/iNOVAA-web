@@ -2,6 +2,11 @@ import SplitHero from "@/components/ui/SplitHero";
 import TrackerHeroVideo from "@/components/TrackerHeroVideo";
 import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
 import CTASection from "@/components/CTASection";
+import RelatedLinks from "@/components/RelatedLinks";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
+import { links } from "@/lib/content";
 import Reveal from "@/components/ui/Reveal";
 import TrustBadgeRow from "@/components/ui/TrustBadgeRow";
 import { Sparkles, Wrench, Building2, Globe } from "lucide-react";
@@ -19,12 +24,15 @@ const heroStats = [
   { label: "Connectivity", value: "BLE 5.3" },
 ];
 
+export const metadata = pageMetadata("/company");
+
 export default function CompanyPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema("/company")} />
       <SplitHero
         eyebrow="Company"
-        title="Built by people who ran the crews"
+        title="About iNOVAA: built by people who ran the crews"
         subhead="Started on solar rooftops, grew into the platform we wished we'd had."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
@@ -52,12 +60,12 @@ export default function CompanyPage() {
                   <Sparkles className="h-5 w-5 text-white" strokeWidth={2} />
                 </span>
                 <div>
-                  <p className="font-semibold text-foreground">Our origin</p>
+                  <h2 className="font-semibold text-foreground">Our origin</h2>
                   <p className="text-sm text-muted-2">From the field to the platform</p>
                 </div>
               </div>
               <p className="mt-6 text-sm leading-relaxed text-muted">
-                iNOVAA began as an internal tool built inside a solar maintenance company to keep
+                iNOVAA (formerly NOVAA) began as an internal tool built inside a solar maintenance company to keep
                 solar arrays running at full output across Arizona. Running that crew exposed every
                 gap in field service software firsthand — jobs tracked on paper, proof of work that
                 lived in someone&apos;s camera roll, and customers who had to call to find out what
@@ -79,6 +87,7 @@ export default function CompanyPage() {
         </div>
       </section>
 
+      <RelatedLinks title="Learn more about iNOVAA" links={[links.tracker, links.solar, links.contact]} />
       <CTASection />
     </>
   );

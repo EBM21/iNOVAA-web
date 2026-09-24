@@ -26,7 +26,7 @@ export default function CapabilityList({
                 {item.icon}
               </span>
               <div>
-                <p className="font-semibold text-foreground">{item.title}</p>
+                <h2 className="font-semibold text-foreground">{item.title}</h2>
                 <p className="mt-1 text-sm leading-relaxed text-muted">{item.text}</p>
               </div>
             </motion.div>
