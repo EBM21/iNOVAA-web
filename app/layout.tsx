@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, DM_Sans, DM_Mono, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL, site } from "@/lib/site";
 import Navbar from "@/components/Navbar";
@@ -7,28 +7,36 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorGlow from "@/components/CursorGlow";
 
-const outfit = Outfit({
+// Self-hosted (Latin subset, from Google Fonts) so builds never depend on reaching fonts.gstatic.com —
+// with next/font/google, a failed download breaks the Turbopack build.
+const outfit = localFont({
   variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  src: "./fonts/outfit-latin-var.woff2",
+  weight: "400 900",
+  display: "swap",
 });
 
-const dmSans = DM_Sans({
+const dmSans = localFont({
   variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  src: "./fonts/dm-sans-latin-var.woff2",
+  weight: "400 700",
+  display: "swap",
 });
 
-const dmMono = DM_Mono({
+const dmMono = localFont({
   variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  src: [
+    { path: "./fonts/dm-mono-latin-400.woff2", weight: "400" },
+    { path: "./fonts/dm-mono-latin-500.woff2", weight: "500" },
+  ],
+  display: "swap",
 });
 
-const caveat = Caveat({
+const caveat = localFont({
   variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["500", "700"],
+  src: "./fonts/caveat-latin-var.woff2",
+  weight: "500 700",
+  display: "swap",
 });
 
 // Site-wide defaults. Every page overrides title/description/canonical/OG via pageMetadata() in lib/seo.ts.
