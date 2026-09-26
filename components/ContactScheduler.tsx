@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import Reveal from "@/components/ui/Reveal";
 import { Calendar, Mail, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import DemoBookingDialog from "@/components/DemoBookingDialog";
 import { cn } from "@/lib/utils";
 
 const slots = ["9:00 AM", "10:30 AM", "1:00 PM", "2:30 PM", "4:00 PM"];
@@ -19,13 +20,17 @@ function nextBusinessDays(count: number) {
 }
 
 const formatDateShort = (d: Date) => d.toLocaleDateString("en-US", { weekday: "short", day: "numeric" });
-const formatDateFull = (d: Date) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+// Local calendar date as YYYY-MM-DD (toISOString would shift it to UTC).
+const toDateKey = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const formatDateFull =(d: Date) => d.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 
 export default function ContactScheduler() {
   const dates = useMemo(() => nextBusinessDays(5), []);
   const [dateIndex, setDateIndex] = useState(0);
   const [slotIndex, setSlotIndex] = useState(1);
   const [confirmed, setConfirmed] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   const selectedDate = dates[dateIndex];
   const selectedSlot = slots[slotIndex];
@@ -80,13 +85,13 @@ export default function ContactScheduler() {
                     ))}
                   </div>
                   <button
-                    onClick={() => setConfirmed(true)}
+                    onClick={() => setDialogOpen(true)}
                     className="btn-primary mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold"
                   >
                     Confirm {selectedSlot} call
                     <ArrowUpRight className="h-4 w-4" />
                   </button>
-                  <p className="mt-3 text-center text-xs text-muted-2">This is a placeholder scheduler — connect your Calendly link here to go live.</p>
+                  <p className="mt-3 text-center text-xs text-muted-2">Next: your name, number, and email — then we confirm by email.</p>
                 </div>
               ) : (
                 <div className="flex flex-col items-center px-6 py-10 text-center">
@@ -95,6 +100,7 @@ export default function ContactScheduler() {
                   </span>
                   <p className="mt-4 text-base font-semibold text-foreground">You&apos;re booked for {formatDateFull(selectedDate)}</p>
                   <p className="mt-1 text-sm text-muted">{selectedSlot} · 20 minutes with the iNOVAA team</p>
+                  <p className="mt-1 text-sm text-muted">We&apos;ve received your request and will confirm by email.</p>
                   <button
                     onClick={() => setConfirmed(false)}
                     className="btn-secondary mt-6 rounded-full px-5 py-2.5 text-sm font-semibold"
@@ -112,6 +118,18 @@ export default function ContactScheduler() {
           </Reveal>
         </div>
       </section>
+
+      <DemoBookingDialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        onBooked={() => {
+          setDialogOpen(false);
+          setConfirmed(true);
+        }}
+        date={toDateKey(selectedDate)}
+        dateLabel={formatDateFull(selectedDate)}
+        slot={selectedSlot}
+      />
     </>
   );
 }
