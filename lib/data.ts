@@ -29,6 +29,48 @@ export const industryGroups = [
     blurb: "Commercial grounds crews and franchise operators managing recurring routes.",
     sub: ["Commercial Landscaping", "Lawn Care Franchises", "Grounds Maintenance"],
   },
+  {
+    slug: "facility-services",
+    name: "Facility Services",
+    blurb: "Cleaning, maintenance, and security teams keeping multi-site buildings running.",
+    sub: ["Commercial Cleaning", "Building Maintenance", "Security Patrols"],
+  },
+  {
+    slug: "manufacturing",
+    name: "Manufacturing",
+    blurb: "Factory floor, production, and plant maintenance crews working across lines and shifts.",
+    sub: ["Factory Floor Teams", "Production Lines", "Plant Maintenance"],
+  },
+  {
+    slug: "construction",
+    name: "Construction",
+    blurb: "Site crews, specialty contractors, and installation teams moving between active job sites.",
+    sub: ["Site Crews", "Specialty Contractors", "Installation Teams"],
+  },
+  {
+    slug: "healthcare",
+    name: "Healthcare",
+    blurb: "Hospital support, clinic operations, and home care teams where every visit has to be accounted for.",
+    sub: ["Hospital Support Staff", "Clinic Operations", "Home Care Visits"],
+  },
+  {
+    slug: "retail",
+    name: "Retail",
+    blurb: "Store, merchandising, and branch teams running the same standards across every location.",
+    sub: ["Store Operations", "Merchandising Teams", "Multi-Branch Operations"],
+  },
+  {
+    slug: "home-services",
+    name: "Home & Commercial Services",
+    blurb: "IT support, locksmith, handyman, duct cleaning, pest control, and landscaping crews on call-out work.",
+    sub: ["IT Support & Locksmiths", "Handyman & Duct Cleaning", "Pest Control & Landscaping"],
+  },
+  {
+    slug: "public-sector",
+    name: "Public Sector",
+    blurb: "Municipal service, campus facilities, and government site crews accountable to the public.",
+    sub: ["Municipal Services", "Campus Facilities", "Government Sites"],
+  },
 ] as const;
 
 export const industryDetails: Record<
@@ -389,6 +431,398 @@ export const efficiencyData: EfficiencyIndustry[] = [
       },
     ],
   },
+  {
+    slug: "facility-services",
+    tab: "Facility Services",
+    name: "Facility Services",
+    insight: "Moving between floors and buildings is part of the job — weighted efficiency credits the carrying and access, not just the cleaning.",
+    team: [
+      {
+        name: "Brian Foster",
+        job: "Office tower night clean",
+        categories: [
+          { label: "Active Work", detail: "Cleaning/Repairs/Patrol", minutes: 95, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Supplies/Waste", minutes: 20, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Lifts, Keyed Areas", minutes: 12, weight: 0.6 },
+          { label: "Walking", detail: "Between Floors/Buildings", minutes: 18, weight: 0 },
+          { label: "Idle", detail: "Waiting on Access", minutes: 14, weight: 0 },
+          { label: "Documentation", detail: "Checklists & Photos", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Tony Ramirez",
+        job: "HVAC filter & light fixture round",
+        categories: [
+          { label: "Active Work", detail: "Cleaning/Repairs/Patrol", minutes: 60, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Supplies/Waste", minutes: 15, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Lifts, Keyed Areas", minutes: 20, weight: 0.6 },
+          { label: "Walking", detail: "Between Floors/Buildings", minutes: 14, weight: 0 },
+          { label: "Idle", detail: "Waiting on Access", minutes: 10, weight: 0 },
+          { label: "Documentation", detail: "Checklists & Photos", minutes: 6, weight: 0 },
+        ],
+      },
+      {
+        name: "Steven Clark",
+        job: "Campus security patrol",
+        categories: [
+          { label: "Active Work", detail: "Cleaning/Repairs/Patrol", minutes: 80, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Supplies/Waste", minutes: 5, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Lifts, Keyed Areas", minutes: 10, weight: 0.6 },
+          { label: "Walking", detail: "Between Floors/Buildings", minutes: 30, weight: 0 },
+          { label: "Idle", detail: "Waiting on Access", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Checklists & Photos", minutes: 10, weight: 0 },
+        ],
+      },
+      {
+        name: "Paul Mitchell",
+        job: "Washroom restock & deep clean",
+        categories: [
+          { label: "Active Work", detail: "Cleaning/Repairs/Patrol", minutes: 45, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Supplies/Waste", minutes: 12, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Lifts, Keyed Areas", minutes: 4, weight: 0.6 },
+          { label: "Walking", detail: "Between Floors/Buildings", minutes: 10, weight: 0 },
+          { label: "Idle", detail: "Waiting on Access", minutes: 18, weight: 0 },
+          { label: "Documentation", detail: "Checklists & Photos", minutes: 5, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "manufacturing",
+    tab: "Manufacturing",
+    name: "Manufacturing",
+    insight: "Changeovers and material handling are real work on a plant floor — weighted efficiency counts them instead of hiding them as downtime.",
+    team: [
+      {
+        name: "Greg Walsh",
+        job: "Line 2 changeover",
+        categories: [
+          { label: "Active Work", detail: "Machine Operation/Assembly", minutes: 85, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Material Handling", minutes: 25, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Guarding, Platforms, Setup", minutes: 18, weight: 0.6 },
+          { label: "Walking", detail: "Between Stations", minutes: 12, weight: 0 },
+          { label: "Idle", detail: "Waiting on Parts/QA", minutes: 20, weight: 0 },
+          { label: "Documentation", detail: "Batch & QA Records", minutes: 10, weight: 0 },
+        ],
+      },
+      {
+        name: "Dan Porter",
+        job: "Preventive maintenance — press",
+        categories: [
+          { label: "Active Work", detail: "Machine Operation/Assembly", minutes: 70, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Material Handling", minutes: 10, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Guarding, Platforms, Setup", minutes: 25, weight: 0.6 },
+          { label: "Walking", detail: "Between Stations", minutes: 8, weight: 0 },
+          { label: "Idle", detail: "Waiting on Parts/QA", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Batch & QA Records", minutes: 12, weight: 0 },
+        ],
+      },
+      {
+        name: "Luis Moreno",
+        job: "Assembly cell — shift A",
+        categories: [
+          { label: "Active Work", detail: "Machine Operation/Assembly", minutes: 110, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Material Handling", minutes: 20, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Guarding, Platforms, Setup", minutes: 8, weight: 0.6 },
+          { label: "Walking", detail: "Between Stations", minutes: 10, weight: 0 },
+          { label: "Idle", detail: "Waiting on Parts/QA", minutes: 15, weight: 0 },
+          { label: "Documentation", detail: "Batch & QA Records", minutes: 6, weight: 0 },
+        ],
+      },
+      {
+        name: "Ray Collins",
+        job: "Packaging & palletizing",
+        categories: [
+          { label: "Active Work", detail: "Machine Operation/Assembly", minutes: 55, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Material Handling", minutes: 30, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Guarding, Platforms, Setup", minutes: 5, weight: 0.6 },
+          { label: "Walking", detail: "Between Stations", minutes: 14, weight: 0 },
+          { label: "Idle", detail: "Waiting on Parts/QA", minutes: 22, weight: 0 },
+          { label: "Documentation", detail: "Batch & QA Records", minutes: 5, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "construction",
+    tab: "Construction",
+    name: "Construction",
+    insight: "Scaffold climbs and hauling materials are what make the build possible — weighted efficiency gives that effort its due.",
+    team: [
+      {
+        name: "Mike Hayes",
+        job: "Level 3 framing",
+        categories: [
+          { label: "Active Work", detail: "Framing/Install/Finish", minutes: 100, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Hauling Materials", minutes: 35, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Scaffold, Ladder, Lift", minutes: 25, weight: 0.6 },
+          { label: "Walking", detail: "Across Site", minutes: 15, weight: 0 },
+          { label: "Idle", detail: "Waiting on Materials/Trades", minutes: 25, weight: 0 },
+          { label: "Documentation", detail: "Daily Log & Photos", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Carlos Vega",
+        job: "Electrical rough-in",
+        categories: [
+          { label: "Active Work", detail: "Framing/Install/Finish", minutes: 80, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Hauling Materials", minutes: 12, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Scaffold, Ladder, Lift", minutes: 30, weight: 0.6 },
+          { label: "Walking", detail: "Across Site", minutes: 10, weight: 0 },
+          { label: "Idle", detail: "Waiting on Materials/Trades", minutes: 18, weight: 0 },
+          { label: "Documentation", detail: "Daily Log & Photos", minutes: 10, weight: 0 },
+        ],
+      },
+      {
+        name: "Scott Reed",
+        job: "Window installation",
+        categories: [
+          { label: "Active Work", detail: "Framing/Install/Finish", minutes: 65, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Hauling Materials", minutes: 28, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Scaffold, Ladder, Lift", minutes: 22, weight: 0.6 },
+          { label: "Walking", detail: "Across Site", minutes: 12, weight: 0 },
+          { label: "Idle", detail: "Waiting on Materials/Trades", minutes: 20, weight: 0 },
+          { label: "Documentation", detail: "Daily Log & Photos", minutes: 6, weight: 0 },
+        ],
+      },
+      {
+        name: "Nate Brooks",
+        job: "Site cleanup & prep",
+        categories: [
+          { label: "Active Work", detail: "Framing/Install/Finish", minutes: 40, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Hauling Materials", minutes: 30, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Scaffold, Ladder, Lift", minutes: 6, weight: 0.6 },
+          { label: "Walking", detail: "Across Site", minutes: 20, weight: 0 },
+          { label: "Idle", detail: "Waiting on Materials/Trades", minutes: 15, weight: 0 },
+          { label: "Documentation", detail: "Daily Log & Photos", minutes: 4, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "healthcare",
+    tab: "Healthcare",
+    name: "Healthcare",
+    insight: "Transporting equipment and moving between wards or homes is part of care support — weighted efficiency reflects it fairly.",
+    team: [
+      {
+        name: "Adam Price",
+        job: "Ward equipment transport",
+        categories: [
+          { label: "Active Work", detail: "Care Support/Setup/Cleaning", minutes: 70, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Moving Equipment/Supplies", minutes: 25, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Lifts, Restricted Areas", minutes: 10, weight: 0.6 },
+          { label: "Walking", detail: "Between Wards/Visits", minutes: 22, weight: 0 },
+          { label: "Idle", detail: "Waiting on Handover", minutes: 15, weight: 0 },
+          { label: "Documentation", detail: "Visit & Task Notes", minutes: 10, weight: 0 },
+        ],
+      },
+      {
+        name: "Chris Bennett",
+        job: "Clinic room turnover",
+        categories: [
+          { label: "Active Work", detail: "Care Support/Setup/Cleaning", minutes: 55, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Moving Equipment/Supplies", minutes: 10, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Lifts, Restricted Areas", minutes: 5, weight: 0.6 },
+          { label: "Walking", detail: "Between Wards/Visits", minutes: 12, weight: 0 },
+          { label: "Idle", detail: "Waiting on Handover", minutes: 14, weight: 0 },
+          { label: "Documentation", detail: "Visit & Task Notes", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Omar Haddad",
+        job: "Home care visit round",
+        categories: [
+          { label: "Active Work", detail: "Care Support/Setup/Cleaning", minutes: 90, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Moving Equipment/Supplies", minutes: 12, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Lifts, Restricted Areas", minutes: 6, weight: 0.6 },
+          { label: "Walking", detail: "Between Wards/Visits", minutes: 35, weight: 0 },
+          { label: "Idle", detail: "Waiting on Handover", minutes: 8, weight: 0 },
+          { label: "Documentation", detail: "Visit & Task Notes", minutes: 15, weight: 0 },
+        ],
+      },
+      {
+        name: "Ben Carter",
+        job: "Sterile supply restock",
+        categories: [
+          { label: "Active Work", detail: "Care Support/Setup/Cleaning", minutes: 40, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Moving Equipment/Supplies", minutes: 20, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Lifts, Restricted Areas", minutes: 8, weight: 0.6 },
+          { label: "Walking", detail: "Between Wards/Visits", minutes: 15, weight: 0 },
+          { label: "Idle", detail: "Waiting on Handover", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Visit & Task Notes", minutes: 6, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "retail",
+    tab: "Retail",
+    name: "Retail",
+    insight: "Stockroom runs and fixture work keep shelves ready — weighted efficiency counts that effort alongside time on the floor.",
+    team: [
+      {
+        name: "Ryan Ellis",
+        job: "Planogram reset — aisle 7",
+        categories: [
+          { label: "Active Work", detail: "Merchandising/Stocking/Service", minutes: 75, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Unloading/Carrying Stock", minutes: 25, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Fixtures, Stockroom", minutes: 12, weight: 0.6 },
+          { label: "Walking", detail: "Floor to Stockroom", minutes: 18, weight: 0 },
+          { label: "Idle", detail: "Waiting on Delivery", minutes: 15, weight: 0 },
+          { label: "Documentation", detail: "Compliance Photos", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Jason Kim",
+        job: "Delivery intake & shelving",
+        categories: [
+          { label: "Active Work", detail: "Merchandising/Stocking/Service", minutes: 60, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Unloading/Carrying Stock", minutes: 35, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Fixtures, Stockroom", minutes: 8, weight: 0.6 },
+          { label: "Walking", detail: "Floor to Stockroom", minutes: 20, weight: 0 },
+          { label: "Idle", detail: "Waiting on Delivery", minutes: 25, weight: 0 },
+          { label: "Documentation", detail: "Compliance Photos", minutes: 5, weight: 0 },
+        ],
+      },
+      {
+        name: "Derek Stone",
+        job: "Branch visit — merchandising audit",
+        categories: [
+          { label: "Active Work", detail: "Merchandising/Stocking/Service", minutes: 50, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Unloading/Carrying Stock", minutes: 6, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Fixtures, Stockroom", minutes: 5, weight: 0.6 },
+          { label: "Walking", detail: "Floor to Stockroom", minutes: 12, weight: 0 },
+          { label: "Idle", detail: "Waiting on Delivery", minutes: 8, weight: 0 },
+          { label: "Documentation", detail: "Compliance Photos", minutes: 15, weight: 0 },
+        ],
+      },
+      {
+        name: "Matt Fisher",
+        job: "Promo display build",
+        categories: [
+          { label: "Active Work", detail: "Merchandising/Stocking/Service", minutes: 65, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Unloading/Carrying Stock", minutes: 18, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Fixtures, Stockroom", minutes: 15, weight: 0.6 },
+          { label: "Walking", detail: "Floor to Stockroom", minutes: 10, weight: 0 },
+          { label: "Idle", detail: "Waiting on Delivery", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Compliance Photos", minutes: 6, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "home-services",
+    tab: "Home & Commercial",
+    name: "Home & Commercial Services",
+    insight: "Call-out work means crawlspaces, attics, and carrying kit to the door — weighted efficiency credits that access time fairly.",
+    team: [
+      {
+        name: "Sam Patel",
+        job: "Office IT support call-out",
+        categories: [
+          { label: "Active Work", detail: "Repair/Install/Treatment", minutes: 60, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Tools/Kit", minutes: 8, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Crawlspace, Attic, Ceiling", minutes: 10, weight: 0.6 },
+          { label: "Walking", detail: "Van to Door", minutes: 6, weight: 0 },
+          { label: "Idle", detail: "Waiting on Customer", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Job Notes & Photos", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Joe Russo",
+        job: "Residential duct cleaning",
+        categories: [
+          { label: "Active Work", detail: "Repair/Install/Treatment", minutes: 80, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Tools/Kit", minutes: 20, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Crawlspace, Attic, Ceiling", minutes: 25, weight: 0.6 },
+          { label: "Walking", detail: "Van to Door", minutes: 8, weight: 0 },
+          { label: "Idle", detail: "Waiting on Customer", minutes: 10, weight: 0 },
+          { label: "Documentation", detail: "Job Notes & Photos", minutes: 6, weight: 0 },
+        ],
+      },
+      {
+        name: "Tyler Grant",
+        job: "Pest control treatment",
+        categories: [
+          { label: "Active Work", detail: "Repair/Install/Treatment", minutes: 45, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Tools/Kit", minutes: 10, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Crawlspace, Attic, Ceiling", minutes: 15, weight: 0.6 },
+          { label: "Walking", detail: "Van to Door", minutes: 5, weight: 0 },
+          { label: "Idle", detail: "Waiting on Customer", minutes: 8, weight: 0 },
+          { label: "Documentation", detail: "Job Notes & Photos", minutes: 7, weight: 0 },
+        ],
+      },
+      {
+        name: "Owen Blake",
+        job: "Lockout & lock change",
+        categories: [
+          { label: "Active Work", detail: "Repair/Install/Treatment", minutes: 30, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Carrying Tools/Kit", minutes: 4, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Crawlspace, Attic, Ceiling", minutes: 3, weight: 0.6 },
+          { label: "Walking", detail: "Van to Door", minutes: 4, weight: 0 },
+          { label: "Idle", detail: "Waiting on Customer", minutes: 15, weight: 0 },
+          { label: "Documentation", detail: "Job Notes & Photos", minutes: 5, weight: 0 },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "public-sector",
+    tab: "Public Sector",
+    name: "Public Sector",
+    insight: "Spread-out sites and heavy kit are the norm for public works — weighted efficiency accounts for that instead of penalising it.",
+    team: [
+      {
+        name: "Frank Lopez",
+        job: "Park & street maintenance",
+        categories: [
+          { label: "Active Work", detail: "Maintenance/Repairs/Inspection", minutes: 85, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Lifting/Hauling", minutes: 25, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Manholes, Lifts", minutes: 15, weight: 0.6 },
+          { label: "Walking", detail: "Between Sites", minutes: 25, weight: 0 },
+          { label: "Idle", detail: "Waiting on Permits/Traffic", minutes: 20, weight: 0 },
+          { label: "Documentation", detail: "Work Orders & Photos", minutes: 10, weight: 0 },
+        ],
+      },
+      {
+        name: "Alan Wright",
+        job: "Campus building inspection",
+        categories: [
+          { label: "Active Work", detail: "Maintenance/Repairs/Inspection", minutes: 70, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Lifting/Hauling", minutes: 6, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Manholes, Lifts", minutes: 18, weight: 0.6 },
+          { label: "Walking", detail: "Between Sites", minutes: 20, weight: 0 },
+          { label: "Idle", detail: "Waiting on Permits/Traffic", minutes: 10, weight: 0 },
+          { label: "Documentation", detail: "Work Orders & Photos", minutes: 15, weight: 0 },
+        ],
+      },
+      {
+        name: "Victor Ortiz",
+        job: "Storm drain clearing",
+        categories: [
+          { label: "Active Work", detail: "Maintenance/Repairs/Inspection", minutes: 60, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Lifting/Hauling", minutes: 30, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Manholes, Lifts", minutes: 20, weight: 0.6 },
+          { label: "Walking", detail: "Between Sites", minutes: 15, weight: 0 },
+          { label: "Idle", detail: "Waiting on Permits/Traffic", minutes: 18, weight: 0 },
+          { label: "Documentation", detail: "Work Orders & Photos", minutes: 8, weight: 0 },
+        ],
+      },
+      {
+        name: "Neil Parker",
+        job: "Government site facilities round",
+        categories: [
+          { label: "Active Work", detail: "Maintenance/Repairs/Inspection", minutes: 50, weight: 1.0 },
+          { label: "Physical Exertion", detail: "Lifting/Hauling", minutes: 10, weight: 0.8 },
+          { label: "Access/Positioning", detail: "Ladders, Manholes, Lifts", minutes: 8, weight: 0.6 },
+          { label: "Walking", detail: "Between Sites", minutes: 18, weight: 0 },
+          { label: "Idle", detail: "Waiting on Permits/Traffic", minutes: 12, weight: 0 },
+          { label: "Documentation", detail: "Work Orders & Photos", minutes: 8, weight: 0 },
+        ],
+      },
+    ],
+  },
 ];
 
 export const jobStages = [
@@ -401,19 +835,18 @@ export const jobStages = [
 
 export const platformFeatures = [
   {
+    icon: "LayoutDashboard",
+    title: "Portal Dashboard",
+    description:
+      "The core of iNOVAA — the software the Tracker's data feeds into. Live job status, team efficiency, schedules, and attendance across every crew and site, solar to landscaping.",
+    href: "/platform/field-ops-dashboard",
+  },
+  {
     icon: "Radio",
     title: "iNOVAA Tracker (IoT)",
     description:
-      "Automatic activity tracking, zero check-ins, battery built for full field days.",
+      "The wearable data source: automatic activity tracking, zero check-ins, battery built for full field days.",
     href: "/platform/inovaa-tracker",
-    flagship: true,
-  },
-  {
-    icon: "LayoutDashboard",
-    title: "Field Ops Dashboard",
-    description:
-      "The software the Tracker's data feeds into — a live, GPS-tagged view of every job stage across every crew and site, solar to landscaping.",
-    href: "/platform/field-ops-dashboard",
   },
   {
     icon: "Users",

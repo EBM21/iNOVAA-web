@@ -146,4 +146,200 @@ export const categoryWorkerBreakdown: Record<string, CategoryWorkerShare[][]> = 
       { worker: "O'Brien", task: "After Photos", weight: 1 },
     ],
   ],
+  "facility-services": [
+    [
+      { worker: "Foster", task: "Floor Cleaning", weight: 6 },
+      { worker: "Clark", task: "Patrol Rounds", weight: 5 },
+      { worker: "Ramirez", task: "Fixture Repair", weight: 4 },
+      { worker: "Mitchell", task: "Restocking", weight: 3 },
+    ],
+    [
+      { worker: "Foster", task: "Carrying Waste", weight: 5 },
+      { worker: "Mitchell", task: "Carrying Supplies", weight: 4 },
+    ],
+    [
+      { worker: "Ramirez", task: "Ladder Work", weight: 3 },
+      { worker: "Clark", task: "Keyed Areas", weight: 2 },
+    ],
+    [
+      { worker: "Clark", task: "Between Buildings", weight: 1 },
+      { worker: "Foster", task: "Between Floors", weight: 1 },
+    ],
+    [
+      { worker: "Mitchell", task: "Waiting on Access", weight: 1 },
+      { worker: "Ramirez", task: "Waiting on Parts", weight: 1 },
+    ],
+    [
+      { worker: "Clark", task: "Patrol Log", weight: 1 },
+      { worker: "Foster", task: "Checklist Photos", weight: 1 },
+    ],
+  ],
+  manufacturing: [
+    [
+      { worker: "Moreno", task: "Assembly", weight: 6 },
+      { worker: "Walsh", task: "Machine Operation", weight: 5 },
+      { worker: "Porter", task: "Maintenance", weight: 4 },
+      { worker: "Collins", task: "Packaging", weight: 3 },
+    ],
+    [
+      { worker: "Collins", task: "Palletizing", weight: 5 },
+      { worker: "Walsh", task: "Material Handling", weight: 4 },
+    ],
+    [
+      { worker: "Porter", task: "Guarding Removal", weight: 3 },
+      { worker: "Walsh", task: "Changeover Setup", weight: 2 },
+    ],
+    [
+      { worker: "Collins", task: "Between Stations", weight: 1 },
+      { worker: "Moreno", task: "To Stores", weight: 1 },
+    ],
+    [
+      { worker: "Walsh", task: "Waiting on QA", weight: 1 },
+      { worker: "Collins", task: "Waiting on Parts", weight: 1 },
+    ],
+    [
+      { worker: "Porter", task: "PM Record", weight: 1 },
+      { worker: "Walsh", task: "Batch Record", weight: 1 },
+    ],
+  ],
+  construction: [
+    [
+      { worker: "Hayes", task: "Framing", weight: 6 },
+      { worker: "Vega", task: "Electrical Install", weight: 5 },
+      { worker: "Reed", task: "Window Install", weight: 4 },
+      { worker: "Brooks", task: "Site Prep", weight: 2 },
+    ],
+    [
+      { worker: "Brooks", task: "Hauling Debris", weight: 5 },
+      { worker: "Hayes", task: "Carrying Lumber", weight: 4 },
+    ],
+    [
+      { worker: "Vega", task: "Scaffold Access", weight: 3 },
+      { worker: "Reed", task: "Lift Positioning", weight: 2 },
+    ],
+    [
+      { worker: "Brooks", task: "Across Site", weight: 1 },
+      { worker: "Hayes", task: "To Laydown Area", weight: 1 },
+    ],
+    [
+      { worker: "Hayes", task: "Waiting on Materials", weight: 1 },
+      { worker: "Reed", task: "Waiting on Trades", weight: 1 },
+    ],
+    [
+      { worker: "Vega", task: "Daily Log", weight: 1 },
+      { worker: "Hayes", task: "Progress Photos", weight: 1 },
+    ],
+  ],
+  healthcare: [
+    [
+      { worker: "Haddad", task: "Home Visit Support", weight: 6 },
+      { worker: "Price", task: "Equipment Setup", weight: 4 },
+      { worker: "Bennett", task: "Room Turnover", weight: 4 },
+      { worker: "Carter", task: "Restocking", weight: 3 },
+    ],
+    [
+      { worker: "Price", task: "Moving Equipment", weight: 5 },
+      { worker: "Carter", task: "Carrying Supplies", weight: 4 },
+    ],
+    [
+      { worker: "Price", task: "Lift Transfers", weight: 2 },
+      { worker: "Carter", task: "Restricted Stores", weight: 2 },
+    ],
+    [
+      { worker: "Haddad", task: "Between Visits", weight: 1 },
+      { worker: "Price", task: "Between Wards", weight: 1 },
+    ],
+    [
+      { worker: "Bennett", task: "Waiting on Handover", weight: 1 },
+      { worker: "Carter", task: "Waiting on Delivery", weight: 1 },
+    ],
+    [
+      { worker: "Haddad", task: "Visit Notes", weight: 1 },
+      { worker: "Bennett", task: "Task Log", weight: 1 },
+    ],
+  ],
+  retail: [
+    [
+      { worker: "Ellis", task: "Planogram Reset", weight: 5 },
+      { worker: "Fisher", task: "Display Build", weight: 5 },
+      { worker: "Kim", task: "Shelving", weight: 4 },
+      { worker: "Stone", task: "Audit", weight: 3 },
+    ],
+    [
+      { worker: "Kim", task: "Unloading Delivery", weight: 6 },
+      { worker: "Ellis", task: "Carrying Stock", weight: 4 },
+    ],
+    [
+      { worker: "Fisher", task: "Ladder Work", weight: 3 },
+      { worker: "Ellis", task: "Fixture Access", weight: 2 },
+    ],
+    [
+      { worker: "Kim", task: "Floor to Stockroom", weight: 1 },
+      { worker: "Ellis", task: "Aisle to Aisle", weight: 1 },
+    ],
+    [
+      { worker: "Kim", task: "Waiting on Delivery", weight: 1 },
+      { worker: "Fisher", task: "Waiting on Materials", weight: 1 },
+    ],
+    [
+      { worker: "Stone", task: "Compliance Photos", weight: 1 },
+      { worker: "Ellis", task: "Reset Sign-off", weight: 1 },
+    ],
+  ],
+  "home-services": [
+    [
+      { worker: "Russo", task: "Duct Cleaning", weight: 6 },
+      { worker: "Patel", task: "IT Repair", weight: 4 },
+      { worker: "Grant", task: "Pest Treatment", weight: 4 },
+      { worker: "Blake", task: "Lock Change", weight: 2 },
+    ],
+    [
+      { worker: "Russo", task: "Carrying Vacuum Rig", weight: 5 },
+      { worker: "Grant", task: "Carrying Sprayer", weight: 3 },
+    ],
+    [
+      { worker: "Russo", task: "Attic Access", weight: 3 },
+      { worker: "Grant", task: "Crawlspace Access", weight: 2 },
+    ],
+    [
+      { worker: "Patel", task: "Van to Door", weight: 1 },
+      { worker: "Blake", task: "Van to Door", weight: 1 },
+    ],
+    [
+      { worker: "Blake", task: "Waiting on Customer", weight: 1 },
+      { worker: "Patel", task: "Waiting on Access", weight: 1 },
+    ],
+    [
+      { worker: "Grant", task: "Treatment Record", weight: 1 },
+      { worker: "Russo", task: "Before/After Photos", weight: 1 },
+    ],
+  ],
+  "public-sector": [
+    [
+      { worker: "Lopez", task: "Street Maintenance", weight: 5 },
+      { worker: "Wright", task: "Inspection", weight: 4 },
+      { worker: "Ortiz", task: "Drain Clearing", weight: 4 },
+      { worker: "Parker", task: "Facilities Repair", weight: 3 },
+    ],
+    [
+      { worker: "Ortiz", task: "Hauling Debris", weight: 5 },
+      { worker: "Lopez", task: "Lifting Signage", weight: 4 },
+    ],
+    [
+      { worker: "Ortiz", task: "Manhole Access", weight: 3 },
+      { worker: "Wright", task: "Roof Access", weight: 2 },
+    ],
+    [
+      { worker: "Lopez", task: "Between Sites", weight: 1 },
+      { worker: "Parker", task: "Between Buildings", weight: 1 },
+    ],
+    [
+      { worker: "Ortiz", task: "Waiting on Traffic Control", weight: 1 },
+      { worker: "Lopez", task: "Waiting on Permit", weight: 1 },
+    ],
+    [
+      { worker: "Wright", task: "Inspection Report", weight: 1 },
+      { worker: "Parker", task: "Work Order Photos", weight: 1 },
+    ],
+  ],
 };

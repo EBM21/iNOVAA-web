@@ -77,7 +77,7 @@ export default function SplitHero({
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.12 }}
-            className={cn("mt-5 max-w-sm text-base leading-relaxed", dark ? "text-white/60" : "text-muted")}
+            className={cn("mt-5 max-w-md text-base leading-relaxed", dark ? "text-white/60" : "text-muted")}
           >
             {subhead}
           </motion.p>

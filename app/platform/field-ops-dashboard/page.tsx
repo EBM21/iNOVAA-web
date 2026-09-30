@@ -1,6 +1,6 @@
 import SplitHero from "@/components/ui/SplitHero";
-import TrackerHeroVideo from "@/components/TrackerHeroVideo";
-import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
+import PortalHeroVisual from "@/components/PortalHeroVisual";
+import PortalShowcase from "@/components/PortalShowcase";
 import CapabilityList from "@/components/CapabilityList";
 import ProductDemo from "@/components/ProductDemo";
 import CTASection from "@/components/CTASection";
@@ -19,9 +19,9 @@ const items = [
 ];
 
 const heroStats = [
-  { label: "Battery Life", value: "7 Days" },
-  { label: "Dust / Water", value: "IP65" },
-  { label: "Connectivity", value: "BLE 5.3" },
+  { label: "Portal Modules", value: "7" },
+  { label: "Tracker Sync", value: "Live" },
+  { label: "Runs In", value: "Browser" },
 ];
 
 export const metadata = pageMetadata("/platform/field-ops-dashboard");
@@ -31,22 +31,17 @@ export default function FieldOpsDashboardPage() {
     <>
       <JsonLd data={breadcrumbSchema("/platform/field-ops-dashboard")} />
       <SplitHero
-        eyebrow="Platform · Field Ops Dashboard"
-        title="Field ops dashboard: every job and crew, one live map"
-        subhead="Staged progress and GPS-tagged status events, in one view."
-        secondaryLabel="See how it works"
-        secondaryHref="/how-it-works"
+        eyebrow="Platform · iNOVAA Portal Dashboard"
+        title="Field ops dashboard: every job and crew, one live view"
+        subhead="The iNOVAA Portal turns Tracker data into live job status, team schedules, and completion rates — in one view."
+        secondaryLabel="See the screens"
+        secondaryHref="#portal"
         stats={heroStats}
         dark
-        visual={
-          <div className="relative h-full w-full">
-            <TrackerHeroVideo />
-            <DeviceAnnotation x="4%" y="18%" dir="left" title="Dual-sensor IMU" text="Motion + orientation" delay={0.8} />
-            <DeviceAnnotation x="80%" y="62%" dir="left" title="Side action button" text="Manual event tag" delay={1} />
-          </div>
-        }
+        visual={<PortalHeroVisual screen="schedule" />}
       />
       <CapabilityList items={items} />
+      <PortalShowcase title="Real screens from the iNOVAA Portal" />
       <ProductDemo />
       <RelatedLinks title="Related to the field ops dashboard" links={[links.tracker, links.customerPortal, links.hvac]} />
       <CTASection />

@@ -6,9 +6,9 @@ export const site = {
   name: "iNOVAA",
   legalName: "iNOVAA, Inc.",
   alternateNames: ["NOVAA", "iNOVAA Tracker", "iNOVAA Portal"],
-  tagline: "AI-Powered Field Workforce Wearable & Tracker",
+  tagline: "Workforce Efficiency Platform — Portal + Wearable Tracker",
   description:
-    "iNOVAA (formerly NOVAA) builds the iNOVAA Tracker, an IoT wearable that turns technicians' hand motions into automatic proof of work, and the iNOVAA Portal, field service management software for solar, HVAC, logistics, hospitality, and landscaping teams.",
+    "iNOVAA (formerly NOVAA) is a workforce efficiency platform: the iNOVAA Portal, a software dashboard for field operations, connected to the iNOVAA Tracker, a wearable that automatically measures how field teams spend their time — for solar, HVAC, logistics, hospitality, and landscaping teams.",
   email: "hello@inovaa.ai",
   bookingUrl: "https://cal.inovaa.ai/intro-call",
   logo: "/icon.png",

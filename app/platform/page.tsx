@@ -1,6 +1,6 @@
 import SplitHero from "@/components/ui/SplitHero";
-import TrackerHeroVideo from "@/components/TrackerHeroVideo";
-import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
+import PortalHeroVisual from "@/components/PortalHeroVisual";
+import PortalShowcase from "@/components/PortalShowcase";
 import PlatformGrid from "@/components/PlatformGrid";
 import TrustSection from "@/components/TrustSection";
 import CTASection from "@/components/CTASection";
@@ -22,9 +22,9 @@ const trustBadges = [
 ];
 
 const heroStats = [
-  { label: "Battery Life", value: "7 Days" },
-  { label: "Dust / Water", value: "IP65" },
-  { label: "Connectivity", value: "BLE 5.3" },
+  { label: "Portal Modules", value: "7" },
+  { label: "Tracker Sync", value: "Live" },
+  { label: "Runs In", value: "Browser" },
 ];
 
 const fields = [
@@ -42,29 +42,28 @@ export default function PlatformPage() {
     <>
       <JsonLd data={[portalSoftwareSchema, breadcrumbSchema("/platform")]} />
       <SplitHero
-        eyebrow="Platform"
-        title="Field service management software, one job record"
-        subhead="Dispatch, crews, customers, and operators — all on the same live record."
-        secondaryLabel="See how it works"
-        secondaryHref="/how-it-works"
+        eyebrow="Platform · iNOVAA Portal"
+        title={
+          <>
+            The software that turns Tracker data into <span className="gradient-text">decisions.</span>
+          </>
+        }
+        subhead="The iNOVAA Portal is the workforce efficiency dashboard at the center of the platform — live jobs, team efficiency, schedules, and attendance, fed automatically by the wearable Tracker."
+        secondaryLabel="See the Portal"
+        secondaryHref="#portal"
         stats={heroStats}
         dark
-        visual={
-          <div className="relative h-full w-full">
-            <TrackerHeroVideo />
-            <DeviceAnnotation x="4%" y="18%" dir="left" title="Dual-sensor IMU" text="Motion + orientation" delay={0.8} />
-            <DeviceAnnotation x="80%" y="62%" dir="left" title="Side action button" text="Manual event tag" delay={1} />
-          </div>
-        }
+        visual={<PortalHeroVisual />}
       />
       <div className="mx-auto max-w-7xl px-6 pt-8 lg:px-8">
         <TrustBadgeRow badges={trustBadges} />
       </div>
+      <PortalShowcase index="§01" title="Inside the iNOVAA Portal" />
       <PlatformGrid />
       <TrustSection />
       <IconChipRow eyebrow="Works everywhere" title="One platform," accent="every field" items={fields} beige />
       <FaqSection title="iNOVAA Portal questions, answered" faqs={platformFaqs} />
-      <RelatedLinks title="Inside the iNOVAA Portal" links={[links.tracker, links.dashboard, links.customerPortal, links.multiTenant, links.howItWorks, links.industries]} />
+      <RelatedLinks title="Inside the iNOVAA Portal" links={[links.dashboard, links.tracker, links.customerPortal, links.multiTenant, links.howItWorks, links.industries]} />
       <CTASection />
     </>
   );

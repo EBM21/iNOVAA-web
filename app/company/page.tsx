@@ -1,6 +1,7 @@
 import SplitHero from "@/components/ui/SplitHero";
 import TrackerHeroVideo from "@/components/TrackerHeroVideo";
 import DeviceAnnotation from "@/components/ui/DeviceAnnotation";
+import PortalSyncCallout from "@/components/PortalSyncCallout";
 import CTASection from "@/components/CTASection";
 import RelatedLinks from "@/components/RelatedLinks";
 import JsonLd from "@/components/JsonLd";
@@ -33,7 +34,7 @@ export default function CompanyPage() {
       <SplitHero
         eyebrow="Company"
         title="About iNOVAA: built by people who ran the crews"
-        subhead="Started on solar rooftops, grew into the platform we wished we'd had."
+        subhead="We build a workforce efficiency platform: the iNOVAA Portal, a software dashboard fed by a wearable Tracker that measures how field teams spend their time."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
         stats={heroStats}
@@ -42,7 +43,7 @@ export default function CompanyPage() {
           <div className="relative h-full w-full">
             <TrackerHeroVideo />
             <DeviceAnnotation x="4%" y="18%" dir="left" title="Dual-sensor IMU" text="Motion + orientation" delay={0.8} />
-            <DeviceAnnotation x="80%" y="62%" dir="left" title="Side action button" text="Manual event tag" delay={1} />
+            <PortalSyncCallout href="/platform" />
           </div>
         }
       />
@@ -73,6 +74,13 @@ export default function CompanyPage() {
                 as a multi-tenant platform for field teams across solar, HVAC, logistics,
                 hospitality, and landscaping.
               </p>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                Today iNOVAA is a workforce efficiency platform with two parts. The iNOVAA Tracker is
+                the wearable that collects the data — it recognizes hands-on work from wrist motion,
+                even with no signal. The iNOVAA Portal is the software that makes that data useful:
+                a dashboard where managers see live job status, team efficiency, schedules, and
+                attendance, and where clients see verified proof of every visit.
+              </p>
             </div>
           </Reveal>
 
@@ -87,7 +95,7 @@ export default function CompanyPage() {
         </div>
       </section>
 
-      <RelatedLinks title="Learn more about iNOVAA" links={[links.tracker, links.solar, links.contact]} />
+      <RelatedLinks title="Learn more about iNOVAA" links={[links.platform, links.tracker, links.contact]} />
       <CTASection />
     </>
   );

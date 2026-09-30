@@ -1,32 +1,30 @@
 "use client";
 
 import SplitHero from "./ui/SplitHero";
-import TrackerHeroVideo from "./TrackerHeroVideo";
-import DeviceAnnotation from "./ui/DeviceAnnotation";
+import HeroSlider from "./HeroSlider";
 
 const stats = [
-  { label: "Battery Life", value: "7 Days" },
-  { label: "Dust / Water", value: "IP65" },
-  { label: "Connectivity", value: "BLE 5.3" },
+  { label: "Tracker Battery", value: "7 Days" },
+  { label: "Tracker Rating", value: "IP65" },
+  { label: "Portal Sync", value: "Live" },
 ];
 
 export default function Hero() {
   return (
     <SplitHero
-      eyebrow="iNOVAA Tracker — The IoT Wearable Built To Work With Zero Signal On Site."
+      eyebrow="Workforce Efficiency Platform · iNOVAA Tracker + iNOVAA Portal"
       title={
-        <>
-          AI-Powered Field Workforce <span className="gradient-text">Wearables.</span>
+        <>AI-Powered Field Workforce <span className="gradient-text">Wearables.</span>
         </>
       }
-      subhead="Automatic proof of work for every employee - Convert hand-motions into visibility"
-      secondaryLabel="See how it works"
-      secondaryHref="/how-it-works"
+      subhead="iNOVAA is a workforce efficiency platform — a software dashboard connected to a wearable Tracker that automatically measures how field teams spend their time."
+      secondaryLabel="See the Portal"
+      secondaryHref="#portal"
       stats={stats}
       dark
       visual={
         <div className="relative h-full w-full">
-          <TrackerHeroVideo />
+          <HeroSlider />
         </div>
       }
     />

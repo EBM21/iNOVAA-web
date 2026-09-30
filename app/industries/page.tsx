@@ -10,16 +10,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { links } from "@/lib/content";
 import IndustriesCarousel from "@/components/IndustriesCarousel";
 import IndustryPortalDashboard from "@/components/IndustryPortalDashboard";
-import IconChipRow from "@/components/ui/IconChipRow";
-import { Sun, Thermometer, Truck, Sparkles, Trees } from "lucide-react";
-
-const fields = [
-  { icon: <Sun className="h-7 w-7" strokeWidth={1.75} />, label: "Solar Maintenance", href: "/industries/solar" },
-  { icon: <Thermometer className="h-7 w-7" strokeWidth={1.75} />, label: "HVAC", href: "/industries/hvac" },
-  { icon: <Truck className="h-7 w-7" strokeWidth={1.75} />, label: "Delivery & Logistics", href: "/industries/logistics" },
-  { icon: <Sparkles className="h-7 w-7" strokeWidth={1.75} />, label: "Hospitality Cleaning", href: "/industries/hospitality" },
-  { icon: <Trees className="h-7 w-7" strokeWidth={1.75} />, label: "Landscaping", href: "/industries/landscaping" },
-];
+import IndustryCards from "@/components/IndustryCards";
+import { industries } from "@/lib/industries";
+import { industryGroups } from "@/lib/data";
 
 const heroStats = [
   { label: "Battery Life", value: "7 Days" },
@@ -36,7 +29,7 @@ export default function IndustriesPage() {
       <SplitHero
         eyebrow="Industries"
         title="A field workforce tracker for crews that work on-site"
-        subhead="One live record, five different playbooks."
+        subhead="One live record, every playbook."
         secondaryLabel="See how it works"
         secondaryHref="/how-it-works"
         stats={heroStats}
@@ -49,7 +42,7 @@ export default function IndustriesPage() {
           </div>
         }
       />
-      <IconChipRow title="Five fields," accent="one platform" items={fields} beige />
+      <IndustryCards title="Ten fields," accent="one platform" items={industries} />
       <IndustryPortalDashboard slug="hvac" />
       <section className="bg-surface-2 pb-24 pt-4">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
@@ -58,7 +51,7 @@ export default function IndustriesPage() {
           </Reveal>
         </div>
       </section>
-      <RelatedLinks title="Explore iNOVAA by industry" links={[links.solar, links.hvac, links.logistics, links.hospitality, links.landscaping, links.tracker]} />
+      <RelatedLinks title="Explore iNOVAA by industry" links={industryGroups.map((g) => links[g.slug])} />
       <CTASection />
     </>
   );

@@ -4,8 +4,8 @@ import { industryGroups } from "@/lib/data";
 import { site } from "@/lib/site";
 
 const platformLinks = [
+  { label: "iNOVAA Portal (Dashboard)", href: "/platform/field-ops-dashboard" },
   { label: "iNOVAA Tracker (IoT)", href: "/platform/inovaa-tracker" },
-  { label: "Field Ops Dashboard", href: "/platform/field-ops-dashboard" },
   { label: "Customer Portal", href: "/platform/customer-portal" },
   { label: "Multi-Tenant & Custom Branding", href: "/platform/multi-tenant" },
   { label: "Connectors", href: "/connectors" },
@@ -62,7 +62,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-footer-muted">
               iNOVAA (formerly NOVAA) is the IoT wearable tracker and field service management
-              software born inside a solar maintenance company, now running solar, HVAC, logistics,
+              software born inside a solar maintenance company, built for solar, HVAC, logistics,
               hospitality, and landscaping crews.
             </p>
             <p className="mt-3 text-sm text-footer-muted">
@@ -104,7 +104,8 @@ export default function Footer() {
 
           <div className="lg:border-l lg:border-footer-border lg:px-8">
             <p className="text-xs font-semibold uppercase tracking-wider text-footer-muted-2">Industries</p>
-            <ul className="mt-4 space-y-4">
+            {/* names only — with twelve industries, listing each one's sub-segments made the column too long */}
+            <ul className="mt-4 space-y-2.5">
               {industryGroups.map((g) => (
                 <li key={g.slug}>
                   <Link
@@ -113,13 +114,6 @@ export default function Footer() {
                   >
                     {g.name}
                   </Link>
-                  <ul className="mt-1.5 space-y-1">
-                    {g.sub.map((s) => (
-                      <li key={s} className="text-xs text-footer-muted-2">
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
                 </li>
               ))}
             </ul>
@@ -154,7 +148,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-6 border-t border-footer-border py-8 sm:flex-row sm:items-center">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-xs font-medium text-footer-muted">Ask AI about iNOVAA:</span>
             {aiSummaryButtons.map((b) => (
               <button
                 key={b.label}

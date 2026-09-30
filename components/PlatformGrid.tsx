@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -9,38 +9,38 @@ import {
   Users,
   Building2,
   ArrowRight,
-  Activity,
   Waypoints,
   ScanFace,
 } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import FadeImage from "./ui/FadeImage";
+import BrowserFrame from "./ui/BrowserFrame";
+import { portalScreens } from "@/lib/portalScreens";
 import { platformFeatures } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const icons = { LayoutDashboard, Radio, Users, Building2 };
 
-const diagrams = [
-  (
-    <FadeImage key="d1" src="/tracker-rock-hero.png" alt="iNOVAA Tracker wearable band that feeds proof-of-work data into the iNOVAA Portal" className="h-full w-full" maskSize="92% 88%" />
-  ),
-  (
-    <div key="d2" className="flex h-full w-full items-center justify-center">
-      <Activity className="h-20 w-20 text-accent-blue" strokeWidth={1.5} />
+// Keyed by feature href so reordering platformFeatures never mismatches a visual.
+const diagrams: Record<string, ReactNode> = {
+  "/platform/field-ops-dashboard": (
+    <div className="bg-stage-warm flex h-full w-full items-center justify-center p-5 sm:p-7">
+      <BrowserFrame
+        src={portalScreens[0].src}
+        alt={portalScreens[0].alt}
+        url={portalScreens[0].url}
+        sizes="(min-width: 1024px) 560px, 90vw"
+        className="w-full"
+      />
     </div>
   ),
-  (
-    <div key="d3" className="flex h-full w-full items-center justify-center">
-      <ScanFace className="h-20 w-20 text-accent-blue" strokeWidth={1.5} />
-    </div>
+  "/platform/inovaa-tracker": (
+    <FadeImage src="/tracker-rock-hero.png" alt="iNOVAA Tracker wearable band that feeds proof-of-work data into the iNOVAA Portal" className="h-full w-full" maskSize="92% 88%" />
   ),
-  (
-    <div key="d4" className="flex h-full w-full items-center justify-center">
-      <Waypoints className="h-20 w-20 text-accent-blue" strokeWidth={1.5} />
-    </div>
-  ),
-];
+  "/platform/customer-portal": <ScanFace className="h-20 w-20 text-accent-blue" strokeWidth={1.5} />,
+  "/platform/multi-tenant": <Waypoints className="h-20 w-20 text-accent-blue" strokeWidth={1.5} />,
+};
 
 export default function PlatformGrid() {
   const [active, setActive] = useState(0);
@@ -50,7 +50,7 @@ export default function PlatformGrid() {
   return (
     <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeading eyebrow="Platform" index="§07" title="Four systems, one job record" />
+        <SectionHeading eyebrow="Platform" index="§02" title="One Portal at the center, fed by the Tracker" />
 
         <Reveal delay={0.1} className="surface-card mt-14 grid gap-0 overflow-hidden rounded-3xl lg:grid-cols-[0.85fr_1.15fr]">
           <div className="divide-y divide-border border-b border-border bg-surface-2 lg:border-b-0 lg:border-r">
@@ -99,8 +99,8 @@ export default function PlatformGrid() {
                 transition={{ duration: 0.25 }}
                 className="flex h-full flex-col"
               >
-                <div className="flex h-56 items-center justify-center overflow-hidden rounded-2xl border border-border bg-surface-2 sm:h-64">
-                  {diagrams[active]}
+                <div className="relative flex h-56 items-center justify-center overflow-hidden rounded-2xl border border-border bg-surface-2 sm:h-64">
+                  {diagrams[activeFeature.href]}
                 </div>
                 <div className="mt-7 flex items-center gap-3">
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent-blue to-accent-teal">

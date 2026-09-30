@@ -78,6 +78,17 @@ export type IndustryPortalData = {
   };
 };
 
+// The five standard job stages with their timestamps — keeps the newer industry entries compact.
+function stages(arrival: string, reached: string, started: string, completed: string, exit: string) {
+  return [
+    { label: "Site Arrival", time: arrival },
+    { label: "Work Area Reached", time: reached },
+    { label: "Work Started", time: started },
+    { label: "Work Completed", time: completed },
+    { label: "Site Exit", time: exit },
+  ];
+}
+
 export const portalData: Record<string, IndustryPortalData> = {
   hvac: {
     team: [
@@ -421,6 +432,335 @@ export const portalData: Record<string, IndustryPortalData> = {
       hazards: [
         { date: "Yesterday", site: "Oakwood Estates", description: "Irrigation trench left uncovered near walkway.", severity: "Medium", status: "Resolved" },
         { date: "Today", site: "Willow Creek Business Park", description: "Low-hanging branch near equipment path.", severity: "Low", status: "Open" },
+      ],
+    },
+  },
+  "facility-services": {
+    team: [
+      { name: "Paul Mitchell", role: "Site Supervisor", status: "In Route", avatar: 53 },
+      { name: "Brian Foster", role: "Cleaning Lead", status: "On Site", avatar: 13 },
+      { name: "Tony Ramirez", role: "Maintenance Technician", status: "On Site", avatar: 18 },
+      { name: "Steven Clark", role: "Security Officer", status: "Off Duty", avatar: 51 },
+    ],
+    attendanceRate: 95,
+    schedule: [
+      { site: "Harborview Office Tower", time: "6:00 AM", assignee: "Brian Foster", status: "In Progress" },
+      { site: "Northgate Medical Plaza", time: "9:00 AM", assignee: "Tony Ramirez", status: "Scheduled" },
+      { site: "Riverside Retail Center", time: "12:30 PM", assignee: "Paul Mitchell", status: "Scheduled" },
+      { site: "Summit Tech Campus", time: "6:00 PM", assignee: "Steven Clark", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Harborview Office Tower", worker: "Brian Foster", date: "Today", stages: stages("5:56 AM", "6:04 AM", "6:08 AM", "8:40 AM", "8:47 AM") },
+      { site: "Northgate Medical Plaza", worker: "Tony Ramirez", date: "Today", stages: stages("9:02 AM", "9:09 AM", "9:14 AM", "10:35 AM", "10:41 AM") },
+    ],
+    attendance: [
+      { name: "Brian Foster", avatar: 13, timeIn: "5:50 AM", timeOut: "2:10 PM", totalTime: "8h 20m" },
+      { name: "Tony Ramirez", avatar: 18, timeIn: "8:45 AM", timeOut: "5:00 PM", totalTime: "8h 15m" },
+      { name: "Paul Mitchell", avatar: 53, timeIn: "9:30 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Steven Clark", avatar: 51, timeIn: "10:00 PM", timeOut: "6:05 AM", totalTime: "8h 5m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Chemical handling briefing completed", completed: true },
+        { item: "PPE (gloves/eye protection) check", completed: true },
+        { item: "Wet-floor signage placed", completed: true },
+        { item: "Ladder inspection before fixture work", completed: false },
+      ],
+      ppe: [
+        { name: "Brian Foster", avatar: 13, status: "Compliant" },
+        { name: "Tony Ramirez", avatar: 18, status: "Compliant" },
+        { name: "Paul Mitchell", avatar: 53, status: "Compliant" },
+        { name: "Steven Clark", avatar: 51, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Unmarked wet floor in lobby caught before foot traffic.", status: "Resolved" },
+        { date: "4 days ago", type: "Incident", description: "Minor strain lifting waste bins, reported and rested.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Northgate Medical Plaza", description: "Flickering stairwell lighting on level 2.", severity: "Medium", status: "Resolved" },
+        { date: "Today", site: "Summit Tech Campus", description: "Propped-open fire door at east entrance.", severity: "High", status: "Open" },
+      ],
+    },
+  },
+  manufacturing: {
+    team: [
+      { name: "Greg Walsh", role: "Line Lead", status: "On Site", avatar: 54 },
+      { name: "Dan Porter", role: "Maintenance Technician", status: "On Site", avatar: 57 },
+      { name: "Luis Moreno", role: "Assembly Operator", status: "On Site", avatar: 58 },
+      { name: "Ray Collins", role: "Packaging Operator", status: "Off Duty", avatar: 59 },
+    ],
+    attendanceRate: 97,
+    schedule: [
+      { site: "Plant 1 — Line 2 Changeover", time: "6:00 AM", assignee: "Greg Walsh", status: "In Progress" },
+      { site: "Plant 1 — Press PM", time: "9:30 AM", assignee: "Dan Porter", status: "Scheduled" },
+      { site: "Plant 2 — Assembly Cell B", time: "2:00 PM", assignee: "Luis Moreno", status: "Scheduled" },
+      { site: "Plant 2 — Packaging Line", time: "10:00 PM", assignee: "Ray Collins", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Plant 1 — Line 2 Changeover", worker: "Greg Walsh", date: "Today", stages: stages("5:52 AM", "5:58 AM", "6:03 AM", "7:48 AM", "7:55 AM") },
+      { site: "Plant 1 — Press PM", worker: "Dan Porter", date: "Today", stages: stages("9:26 AM", "9:31 AM", "9:40 AM", "11:05 AM", "11:12 AM") },
+    ],
+    attendance: [
+      { name: "Greg Walsh", avatar: 54, timeIn: "5:45 AM", timeOut: "2:15 PM", totalTime: "8h 30m" },
+      { name: "Dan Porter", avatar: 57, timeIn: "6:00 AM", timeOut: "2:20 PM", totalTime: "8h 20m" },
+      { name: "Luis Moreno", avatar: 58, timeIn: "1:50 PM", timeOut: "—", totalTime: "In progress" },
+      { name: "Ray Collins", avatar: 59, timeIn: "9:55 PM", timeOut: "6:00 AM", totalTime: "8h 5m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Lockout/tagout verified before maintenance", completed: true },
+        { item: "PPE (hearing/eye protection) check", completed: true },
+        { item: "Machine guarding inspection", completed: true },
+        { item: "Forklift pre-use inspection", completed: false },
+      ],
+      ppe: [
+        { name: "Greg Walsh", avatar: 54, status: "Compliant" },
+        { name: "Dan Porter", avatar: 57, status: "Compliant" },
+        { name: "Luis Moreno", avatar: 58, status: "Non-Compliant" },
+        { name: "Ray Collins", avatar: 59, status: "Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Guard interlock bypass found and reset before start-up.", status: "Resolved" },
+        { date: "5 days ago", type: "Incident", description: "Minor pinch injury during die change, first aid given.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Plant 1 — Line 2", description: "Oil leak under hydraulic press.", severity: "Medium", status: "Resolved" },
+        { date: "Today", site: "Plant 2 — Packaging Line", description: "Pallets stacked in forklift lane.", severity: "Medium", status: "Open" },
+      ],
+    },
+  },
+  construction: {
+    team: [
+      { name: "Mike Hayes", role: "Site Foreman", status: "On Site", avatar: 60 },
+      { name: "Carlos Vega", role: "Electrician", status: "On Site", avatar: 61 },
+      { name: "Scott Reed", role: "Installer", status: "In Route", avatar: 63 },
+      { name: "Nate Brooks", role: "Laborer", status: "Off Duty", avatar: 68 },
+    ],
+    attendanceRate: 92,
+    schedule: [
+      { site: "Elm Street Mixed-Use — Level 3", time: "7:00 AM", assignee: "Mike Hayes", status: "In Progress" },
+      { site: "Elm Street Mixed-Use — Level 2", time: "8:30 AM", assignee: "Carlos Vega", status: "In Progress" },
+      { site: "Brookside Townhomes — Unit 6", time: "11:00 AM", assignee: "Scott Reed", status: "Scheduled" },
+      { site: "Westfield Warehouse Fit-out", time: "1:30 PM", assignee: "Nate Brooks", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Elm Street Mixed-Use — Level 3", worker: "Mike Hayes", date: "Today", stages: stages("6:48 AM", "6:58 AM", "7:05 AM", "11:30 AM", "11:38 AM") },
+      { site: "Elm Street Mixed-Use — Level 2", worker: "Carlos Vega", date: "Today", stages: stages("8:25 AM", "8:33 AM", "8:40 AM", "12:10 PM", "12:15 PM") },
+    ],
+    attendance: [
+      { name: "Mike Hayes", avatar: 60, timeIn: "6:40 AM", timeOut: "3:30 PM", totalTime: "8h 50m" },
+      { name: "Carlos Vega", avatar: 61, timeIn: "7:00 AM", timeOut: "3:30 PM", totalTime: "8h 30m" },
+      { name: "Scott Reed", avatar: 63, timeIn: "7:30 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Nate Brooks", avatar: 68, timeIn: "6:55 AM", timeOut: "3:00 PM", totalTime: "8h 5m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Toolbox talk completed", completed: true },
+        { item: "PPE (hard hat/hi-vis/boots) check", completed: true },
+        { item: "Scaffold tag inspection", completed: true },
+        { item: "Fall-protection harness check", completed: false },
+      ],
+      ppe: [
+        { name: "Mike Hayes", avatar: 60, status: "Compliant" },
+        { name: "Carlos Vega", avatar: 61, status: "Compliant" },
+        { name: "Scott Reed", avatar: 63, status: "Compliant" },
+        { name: "Nate Brooks", avatar: 68, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Unsecured material on Level 3 edge removed before a drop.", status: "Resolved" },
+        { date: "3 days ago", type: "Incident", description: "Minor hand cut handling sheet metal, first aid given.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Elm Street Mixed-Use", description: "Missing guardrail section on Level 3.", severity: "High", status: "Resolved" },
+        { date: "Today", site: "Westfield Warehouse Fit-out", description: "Extension cords across main walkway.", severity: "Low", status: "Open" },
+      ],
+    },
+  },
+  healthcare: {
+    team: [
+      { name: "Ben Carter", role: "Support Services Lead", status: "On Site", avatar: 56 },
+      { name: "Adam Price", role: "Equipment Porter", status: "On Site", avatar: 11 },
+      { name: "Chris Bennett", role: "Clinic Assistant", status: "Off Duty", avatar: 12 },
+      { name: "Omar Haddad", role: "Home Care Aide", status: "In Route", avatar: 14 },
+    ],
+    attendanceRate: 98,
+    schedule: [
+      { site: "St. Anne's Hospital — Ward 4", time: "7:00 AM", assignee: "Adam Price", status: "In Progress" },
+      { site: "Lakeside Clinic — Rooms 1-6", time: "8:00 AM", assignee: "Chris Bennett", status: "Completed" },
+      { site: "Home visits — North route", time: "10:00 AM", assignee: "Omar Haddad", status: "In Progress" },
+      { site: "St. Anne's Hospital — Sterile Stores", time: "2:00 PM", assignee: "Ben Carter", status: "Scheduled" },
+    ],
+    jobHistory: [
+      { site: "St. Anne's Hospital — Ward 4", worker: "Adam Price", date: "Today", stages: stages("6:55 AM", "7:02 AM", "7:05 AM", "9:15 AM", "9:20 AM") },
+      { site: "Lakeside Clinic — Rooms 1-6", worker: "Chris Bennett", date: "Today", stages: stages("7:52 AM", "7:56 AM", "8:00 AM", "9:05 AM", "9:10 AM") },
+    ],
+    attendance: [
+      { name: "Adam Price", avatar: 11, timeIn: "6:50 AM", timeOut: "3:05 PM", totalTime: "8h 15m" },
+      { name: "Chris Bennett", avatar: 12, timeIn: "7:45 AM", timeOut: "12:00 PM", totalTime: "4h 15m" },
+      { name: "Omar Haddad", avatar: 14, timeIn: "9:40 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Ben Carter", avatar: 56, timeIn: "7:00 AM", timeOut: "3:30 PM", totalTime: "8h 30m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Infection-control briefing completed", completed: true },
+        { item: "PPE (gloves/mask) check", completed: true },
+        { item: "Safe patient-area access confirmed", completed: true },
+        { item: "Manual handling equipment check", completed: false },
+      ],
+      ppe: [
+        { name: "Adam Price", avatar: 11, status: "Compliant" },
+        { name: "Chris Bennett", avatar: 12, status: "Compliant" },
+        { name: "Omar Haddad", avatar: 14, status: "Compliant" },
+        { name: "Ben Carter", avatar: 56, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Equipment trolley brake failed on ramp, stopped safely.", status: "Resolved" },
+        { date: "6 days ago", type: "Incident", description: "Minor back strain moving a supply cart, reported.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "St. Anne's Hospital — Ward 4", description: "Spill near nurses' station.", severity: "Low", status: "Resolved" },
+        { date: "Today", site: "Home visits — North route", description: "Icy steps at client entrance.", severity: "Medium", status: "Open" },
+      ],
+    },
+  },
+  retail: {
+    team: [
+      { name: "Derek Stone", role: "Area Merchandising Lead", status: "In Route", avatar: 64 },
+      { name: "Ryan Ellis", role: "Merchandiser", status: "On Site", avatar: 52 },
+      { name: "Jason Kim", role: "Stock Associate", status: "On Site", avatar: 55 },
+      { name: "Matt Fisher", role: "Display Specialist", status: "Off Duty", avatar: 65 },
+    ],
+    attendanceRate: 94,
+    schedule: [
+      { site: "Downtown Store #12 — Aisle 7 Reset", time: "6:30 AM", assignee: "Ryan Ellis", status: "In Progress" },
+      { site: "Downtown Store #12 — Delivery Intake", time: "7:00 AM", assignee: "Jason Kim", status: "In Progress" },
+      { site: "Westgate Mall Branch — Audit", time: "11:00 AM", assignee: "Derek Stone", status: "Scheduled" },
+      { site: "Eastside Store #4 — Promo Display", time: "2:00 PM", assignee: "Matt Fisher", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Downtown Store #12 — Aisle 7 Reset", worker: "Ryan Ellis", date: "Today", stages: stages("6:24 AM", "6:30 AM", "6:34 AM", "8:20 AM", "8:26 AM") },
+      { site: "Downtown Store #12 — Delivery Intake", worker: "Jason Kim", date: "Today", stages: stages("6:55 AM", "7:00 AM", "7:02 AM", "9:10 AM", "9:15 AM") },
+    ],
+    attendance: [
+      { name: "Ryan Ellis", avatar: 52, timeIn: "6:20 AM", timeOut: "2:45 PM", totalTime: "8h 25m" },
+      { name: "Jason Kim", avatar: 55, timeIn: "6:50 AM", timeOut: "3:00 PM", totalTime: "8h 10m" },
+      { name: "Derek Stone", avatar: 64, timeIn: "9:00 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Matt Fisher", avatar: 65, timeIn: "7:30 AM", timeOut: "3:45 PM", totalTime: "8h 15m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Safe lifting briefing completed", completed: true },
+        { item: "Step ladder inspection", completed: true },
+        { item: "Stockroom aisles clear", completed: true },
+        { item: "Box cutter safety check", completed: false },
+      ],
+      ppe: [
+        { name: "Ryan Ellis", avatar: 52, status: "Compliant" },
+        { name: "Jason Kim", avatar: 55, status: "Compliant" },
+        { name: "Derek Stone", avatar: 64, status: "Compliant" },
+        { name: "Matt Fisher", avatar: 65, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Overloaded top shelf flagged and reduced before opening.", status: "Resolved" },
+        { date: "1 week ago", type: "Incident", description: "Minor cut opening cartons, first aid given.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Downtown Store #12", description: "Pallet jack left in customer aisle.", severity: "Medium", status: "Resolved" },
+        { date: "Today", site: "Eastside Store #4", description: "Loose display fixture near entrance.", severity: "Low", status: "Open" },
+      ],
+    },
+  },
+  "home-services": {
+    team: [
+      { name: "Owen Blake", role: "Dispatch Lead", status: "In Route", avatar: 53 },
+      { name: "Joe Russo", role: "Duct Cleaning Technician", status: "On Site", avatar: 18 },
+      { name: "Sam Patel", role: "IT Support Technician", status: "On Site", avatar: 13 },
+      { name: "Tyler Grant", role: "Pest Control Technician", status: "Off Duty", avatar: 51 },
+    ],
+    attendanceRate: 94,
+    schedule: [
+      { site: "Maple Drive Residence — Duct Cleaning", time: "8:00 AM", assignee: "Joe Russo", status: "In Progress" },
+      { site: "Brightline Accounting — IT Call-out", time: "9:30 AM", assignee: "Sam Patel", status: "In Progress" },
+      { site: "Cedar Court Apartments — Pest Control", time: "12:00 PM", assignee: "Tyler Grant", status: "Scheduled" },
+      { site: "Oak Street Shop — Lock Change", time: "3:00 PM", assignee: "Owen Blake", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Maple Drive Residence — Duct Cleaning", worker: "Joe Russo", date: "Today", stages: stages("7:56 AM", "8:02 AM", "8:10 AM", "10:25 AM", "10:32 AM") },
+      { site: "Brightline Accounting — IT Call-out", worker: "Sam Patel", date: "Today", stages: stages("9:28 AM", "9:34 AM", "9:38 AM", "10:45 AM", "10:50 AM") },
+    ],
+    attendance: [
+      { name: "Joe Russo", avatar: 18, timeIn: "7:30 AM", timeOut: "4:00 PM", totalTime: "8h 30m" },
+      { name: "Sam Patel", avatar: 13, timeIn: "8:45 AM", timeOut: "5:00 PM", totalTime: "8h 15m" },
+      { name: "Owen Blake", avatar: 53, timeIn: "8:00 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Tyler Grant", avatar: 51, timeIn: "7:00 AM", timeOut: "3:10 PM", totalTime: "8h 10m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Customer-site risk check completed", completed: true },
+        { item: "PPE (respirator/gloves) check", completed: true },
+        { item: "Chemical label & SDS on hand", completed: true },
+        { item: "Attic/crawlspace access check", completed: false },
+      ],
+      ppe: [
+        { name: "Joe Russo", avatar: 18, status: "Compliant" },
+        { name: "Sam Patel", avatar: 13, status: "Compliant" },
+        { name: "Owen Blake", avatar: 53, status: "Compliant" },
+        { name: "Tyler Grant", avatar: 51, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Weak attic joist spotted before stepping off the ladder.", status: "Resolved" },
+        { date: "5 days ago", type: "Incident", description: "Minor skin irritation after treatment, rinsed and reported.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Maple Drive Residence", description: "Exposed wiring near attic hatch.", severity: "Medium", status: "Resolved" },
+        { date: "Today", site: "Cedar Court Apartments", description: "Unlit basement stairwell.", severity: "Low", status: "Open" },
+      ],
+    },
+  },
+  "public-sector": {
+    team: [
+      { name: "Frank Lopez", role: "Public Works Crew Lead", status: "On Site", avatar: 54 },
+      { name: "Alan Wright", role: "Facilities Inspector", status: "In Route", avatar: 57 },
+      { name: "Victor Ortiz", role: "Maintenance Worker", status: "On Site", avatar: 58 },
+      { name: "Neil Parker", role: "Facilities Technician", status: "Off Duty", avatar: 59 },
+    ],
+    attendanceRate: 96,
+    schedule: [
+      { site: "Central Park — Paths & Benches", time: "7:00 AM", assignee: "Frank Lopez", status: "In Progress" },
+      { site: "Main Street — Storm Drains", time: "8:30 AM", assignee: "Victor Ortiz", status: "In Progress" },
+      { site: "City College — Science Block", time: "11:00 AM", assignee: "Alan Wright", status: "Scheduled" },
+      { site: "County Records Office", time: "2:00 PM", assignee: "Neil Parker", status: "At risk" },
+    ],
+    jobHistory: [
+      { site: "Central Park — Paths & Benches", worker: "Frank Lopez", date: "Today", stages: stages("6:52 AM", "7:00 AM", "7:06 AM", "9:40 AM", "9:46 AM") },
+      { site: "Main Street — Storm Drains", worker: "Victor Ortiz", date: "Today", stages: stages("8:24 AM", "8:31 AM", "8:45 AM", "10:50 AM", "10:58 AM") },
+    ],
+    attendance: [
+      { name: "Frank Lopez", avatar: 54, timeIn: "6:45 AM", timeOut: "3:15 PM", totalTime: "8h 30m" },
+      { name: "Victor Ortiz", avatar: 58, timeIn: "7:00 AM", timeOut: "3:20 PM", totalTime: "8h 20m" },
+      { name: "Alan Wright", avatar: 57, timeIn: "8:30 AM", timeOut: "—", totalTime: "In progress" },
+      { name: "Neil Parker", avatar: 59, timeIn: "7:30 AM", timeOut: "3:40 PM", totalTime: "8h 10m" },
+    ],
+    ehs: {
+      checklist: [
+        { item: "Traffic management plan in place", completed: true },
+        { item: "PPE (hi-vis/boots/gloves) check", completed: true },
+        { item: "Confined-space permit issued", completed: true },
+        { item: "Gas detector bump test", completed: false },
+      ],
+      ppe: [
+        { name: "Frank Lopez", avatar: 54, status: "Compliant" },
+        { name: "Victor Ortiz", avatar: 58, status: "Compliant" },
+        { name: "Alan Wright", avatar: 57, status: "Compliant" },
+        { name: "Neil Parker", avatar: 59, status: "Non-Compliant" },
+      ],
+      incidents: [
+        { date: "Today", type: "Near Miss", description: "Vehicle entered work zone, cones repositioned.", status: "Resolved" },
+        { date: "1 week ago", type: "Incident", description: "Minor ankle twist on uneven pavement, reported.", status: "Resolved" },
+      ],
+      hazards: [
+        { date: "Yesterday", site: "Main Street", description: "Loose drain grate near crosswalk.", severity: "High", status: "Resolved" },
+        { date: "Today", site: "Central Park", description: "Broken bench slat on east path.", severity: "Low", status: "Open" },
       ],
     },
   },

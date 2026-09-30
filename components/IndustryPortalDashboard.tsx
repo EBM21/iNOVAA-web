@@ -238,7 +238,7 @@ export default function IndustryPortalDashboard({ slug }: { slug: string }) {
   const totalWorkHours = totalAttendanceMinutes(portal.attendance) / 60;
 
   return (
-    <section className="py-20 sm:py-28">
+    <section id="portal-dashboard" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <SectionHeading
           eyebrow="iNOVAA Portal"

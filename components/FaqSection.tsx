@@ -23,7 +23,11 @@ export default function FaqSection({
           {faqs.map((f) => (
             <details key={f.q} className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer list-none items-start justify-between gap-4">
-                <h3 className="text-base font-semibold text-foreground">{f.q}</h3>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">{f.q}</h3>
+                  {/* one-line takeaway, readable without opening the answer */}
+                  {f.tag && <p className="gradient-text-logo mt-1 text-sm font-medium">{f.tag}</p>}
+                </div>
                 <ChevronDown className="mt-0.5 h-5 w-5 shrink-0 text-muted-2 transition-transform group-open:rotate-180" />
               </summary>
               <p className="mt-3 text-sm leading-relaxed text-muted">{f.a}</p>

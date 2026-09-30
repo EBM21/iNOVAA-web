@@ -2,6 +2,7 @@ import SplitHero from "./ui/SplitHero";
 import TrackerHeroVideo from "./TrackerHeroVideo";
 import DeviceAnnotation from "./ui/DeviceAnnotation";
 import IndustryPortalDashboard from "./IndustryPortalDashboard";
+import PortalSyncCallout from "./PortalSyncCallout";
 import Reveal from "./ui/Reveal";
 import TrustBadgeRow from "./ui/TrustBadgeRow";
 import CTASection from "./CTASection";
@@ -9,6 +10,7 @@ import FaqSection from "./FaqSection";
 import RelatedLinks from "./RelatedLinks";
 import SectionHeading from "./ui/SectionHeading";
 import { industryContent, links } from "@/lib/content";
+import { industryGroups } from "@/lib/data";
 import { Building2, RefreshCw, WifiOff } from "lucide-react";
 
 const trustBadges = [
@@ -36,9 +38,7 @@ export default function IndustryDetail({
 }) {
   const content = industryContent[slug];
   // Link to the other industries too, so every industry page is reachable from its siblings.
-  const siblings = (["solar", "hvac", "logistics", "hospitality", "landscaping"] as const)
-    .filter((s) => s !== slug)
-    .map((s) => links[s]);
+  const siblings = industryGroups.filter((g) => g.slug !== slug).map((g) => links[g.slug]);
 
   return (
     <>
@@ -46,15 +46,15 @@ export default function IndustryDetail({
         eyebrow={`Industries · ${name}`}
         title={content.h1}
         subhead={blurb}
-        secondaryLabel="See how it works"
-        secondaryHref="/how-it-works"
+        secondaryLabel="Try the live dashboard"
+        secondaryHref="#portal-dashboard"
         stats={heroStats}
         dark
         visual={
           <div className="relative h-full w-full">
             <TrackerHeroVideo />
             <DeviceAnnotation x="4%" y="18%" dir="left" title="Dual-sensor IMU" text="Motion + orientation" delay={0.8} />
-            <DeviceAnnotation x="80%" y="62%" dir="left" title="Side action button" text="Manual event tag" delay={1} />
+            <PortalSyncCallout href="#portal-dashboard" />
           </div>
         }
       />

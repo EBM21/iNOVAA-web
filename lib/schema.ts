@@ -1,7 +1,8 @@
 import { absoluteUrl, sameAs, site, SITE_URL } from "./site";
 import { breadcrumbTrail, type RoutePath } from "./seo";
 
-export type Faq = { q: string; a: string };
+/** `tag` is an optional one-line takeaway shown under the question; it isn't part of the FAQPage JSON-LD. */
+export type Faq = { q: string; a: string; tag?: string };
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
@@ -68,7 +69,7 @@ export const portalSoftwareSchema = {
   applicationSubCategory: "Field service management software",
   operatingSystem: "Web browser",
   description:
-    "Field service management software with a live field ops dashboard, customer portal, and multi-tenant custom branding, fed by iNOVAA Tracker proof-of-work data.",
+    "Workforce efficiency software for field operations: a live dashboard for job status, team efficiency, schedules, and attendance, plus a customer portal and multi-tenant branding, fed automatically by iNOVAA Tracker wearable data.",
   url: absoluteUrl("/platform"),
   publisher: { "@id": ORG_ID },
   featureList: [

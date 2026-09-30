@@ -19,17 +19,17 @@ type RouteSeo = {
 // is the one step that wires it into SEO.
 export const routes = {
   "/": {
-    title: "iNOVAA — AI-Powered Field Workforce Wearable & Tracker",
+    title: "iNOVAA — Workforce Efficiency Platform: Portal + Wearable Tracker",
     description:
-      "iNOVAA (formerly NOVAA) is the IoT wearable tracker that turns field work into automatic proof of work. See live jobs, crews, and efficiency. Book a demo.",
+      "iNOVAA is a workforce efficiency platform: a software dashboard connected to a wearable Tracker that automatically measures how field teams spend their time.",
     crumb: "Home",
     changeFrequency: "weekly",
     priority: 1,
   },
   "/platform": {
-    title: "Field Service Management Software Platform | iNOVAA",
+    title: "iNOVAA Portal — Workforce Efficiency Software Platform | iNOVAA",
     description:
-      "The iNOVAA Portal is field service management software that joins dispatch, crews, customers, and wearable tracker data on one live job record. Book a demo.",
+      "The iNOVAA Portal is the workforce efficiency dashboard fed by the wearable Tracker — live job status, team efficiency, schedules, and attendance. See real screens.",
     crumb: "Platform",
     changeFrequency: "monthly",
     priority: 0.9,
@@ -44,10 +44,10 @@ export const routes = {
     priority: 0.95,
   },
   "/platform/field-ops-dashboard": {
-    title: "Field Ops Dashboard & Live Workforce Tracking | iNOVAA",
+    title: "Field Ops Dashboard & Live Workforce Tracking | iNOVAA Portal",
     description:
-      "Track every job and crew on one live map. iNOVAA's field ops dashboard shows staged progress, GPS-tagged events, and at-risk alerts in real time. See it live.",
-    crumb: "Field Ops Dashboard",
+      "The iNOVAA Portal dashboard turns wearable Tracker data into live job status, team schedules, completion rates, and at-risk alerts. See real screenshots.",
+    crumb: "Portal Dashboard",
     parent: "/platform",
     changeFrequency: "monthly",
     priority: 0.8,
@@ -122,6 +122,69 @@ export const routes = {
     parent: "/industries",
     changeFrequency: "monthly",
     priority: 0.85,
+  },
+  "/industries/facility-services": {
+    title: "Facility Services Workforce Tracker | iNOVAA",
+    description:
+      "Verify cleaning, maintenance, and security rounds across every building. iNOVAA logs facility work automatically with time, location, and photo proof.",
+    crumb: "Facility Services",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/manufacturing": {
+    title: "Manufacturing Workforce Efficiency Tracker | iNOVAA",
+    description:
+      "See where every shift's time goes on the plant floor. iNOVAA measures changeovers, maintenance, and line work automatically — no manual time sheets.",
+    crumb: "Manufacturing",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/construction": {
+    title: "Construction Crew Tracker & Site Progress | iNOVAA",
+    description:
+      "Track site crews and subcontractors across every active job site. iNOVAA logs work automatically, even offline, and shows verified progress live.",
+    crumb: "Construction",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/healthcare": {
+    title: "Healthcare Support & Home Care Visit Tracker | iNOVAA",
+    description:
+      "Verify home care visits and hospital support tasks with time and location. iNOVAA logs activity only — no patient data — and shows every visit live.",
+    crumb: "Healthcare",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/retail": {
+    title: "Retail & Merchandising Team Tracker | iNOVAA",
+    description:
+      "Prove every reset, delivery, and branch visit. iNOVAA logs retail and merchandising work automatically and shows compliance store by store.",
+    crumb: "Retail",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/home-services": {
+    title: "Home & Commercial Services Field Tracker | iNOVAA",
+    description:
+      "Proof of every call-out for IT support, locksmiths, handyman, duct cleaning, and pest control crews. iNOVAA logs each visit automatically.",
+    crumb: "Home & Commercial Services",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
+  },
+  "/industries/public-sector": {
+    title: "Public Sector Field Crew Tracker | iNOVAA",
+    description:
+      "Auditable records for municipal, campus, and government site crews. iNOVAA logs every work order with time, location, and photo proof.",
+    crumb: "Public Sector",
+    parent: "/industries",
+    changeFrequency: "monthly",
+    priority: 0.8,
   },
   "/how-it-works": {
     title: "How Automatic Proof of Work Works for Field Teams | iNOVAA",

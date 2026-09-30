@@ -7,8 +7,8 @@ import { Menu, X, ChevronDown, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const platformItems = [
+  { label: "iNOVAA Portal (Dashboard)", href: "/platform/field-ops-dashboard" },
   { label: "iNOVAA Tracker (IoT)", href: "/platform/inovaa-tracker" },
-  { label: "Field Ops Dashboard", href: "/platform/field-ops-dashboard" },
   { label: "Customer Portal", href: "/platform/customer-portal" },
   { label: "Multi-Tenant & Custom Branding", href: "/platform/multi-tenant" },
 ];
@@ -19,6 +19,13 @@ const industryItems = [
   { label: "Delivery & Logistics", href: "/industries/logistics" },
   { label: "Hospitality Cleaning", href: "/industries/hospitality" },
   { label: "Landscaping", href: "/industries/landscaping" },
+  { label: "Facility Services", href: "/industries/facility-services" },
+  { label: "Manufacturing", href: "/industries/manufacturing" },
+  { label: "Construction", href: "/industries/construction" },
+  { label: "Healthcare", href: "/industries/healthcare" },
+  { label: "Retail", href: "/industries/retail" },
+  { label: "Home & Commercial Services", href: "/industries/home-services" },
+  { label: "Public Sector", href: "/industries/public-sector" },
 ];
 
 const navLinks = [

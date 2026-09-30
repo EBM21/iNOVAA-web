@@ -7,14 +7,14 @@ import SectionHeading from "./ui/SectionHeading";
 
 const tiles = [
   { src: "/tracker-rock-hero.png", caption: "Full Assembly", dark: true, large: true, alt: "Fully assembled orange iNOVAA Tracker IoT wearable on a rock outdoors" },
-  { src: "/tracker-detail-sensors.png", caption: "Precision Sensors", dark: true, alt: "Motion and optical sensors on the underside of the iNOVAA Tracker" },
+  { src: "/tracker-detail-sensors.png", caption: "Precision Sensors", dark: true, alt: "Motion sensors on the underside of the iNOVAA Tracker" },
   { src: "/tracker-detail-led.png", caption: "Activity LED", dark: false, alt: "Activity status LED window on the side of the iNOVAA Tracker band" },
   { src: "/tracker-detail-strap.png", caption: "Secure Strap", dark: true, alt: "Secure buckle on the iNOVAA Tracker silicone strap" },
-  { src: "/tracker-detail-wrist.png", caption: "Worn on Wrist", dark: false, alt: "Technician wearing the iNOVAA wrist-worn activity tracker during field work" },
+  { src: "/tracker-detail-wrist.png", caption: "Offline-First", dark: false, alt: "Technician wearing the iNOVAA wrist-worn activity tracker during field work" },
 ];
 
 const features = [
-  { icon: WifiOff, title: "Offline-First", text: "The first tracker built to work with zero signal on site." },
+  { icon: WifiOff, title: "Offline-First", text: "Built to work with zero signal on site." },
   { icon: BatteryFull, title: "Long Battery Life", text: "Up to 7 days on a single charge." },
   { icon: MapPin, title: "Real-Time GPS", text: "Live location and route tracking." },
   { icon: ScanEye, title: "Activity Detection", text: "Classifies work without a check-in." },
